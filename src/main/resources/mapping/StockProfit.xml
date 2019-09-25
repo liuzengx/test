@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ts.module.stock.dao.StockProfitDao">
+	<!-- 查询记录数 --> 
+    <select id="queryListCount" resultType="Int">
+        SELECT count(*) FROM g_stock_profit
+    </select>
+   
+    <!-- 查询记录 --> 
+    <select id="queryList" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+        SELECT * FROM g_stock_profit 
+    	<where>
+	        <if test="MD5 != null">
+	         	AND MD5 = #{MD5} 
+	        </if>
+        </where>
+        ORDER BY dealDate desc
+        <if test="page!=null and pageSize!=null">
+            limit #{page},#{pageSize}
+        </if>
+    </select>
+    <!-- 增加StockProfit --> 
+    <insert  id="addStockProfit" parameterType="java.util.Map">
+        INSERT INTO g_stock_profit(
+        		md5,stockCode,stockName,buyTotal,stockCost,sellTotal,stockDeal,dealNumber,dealDate,stockProfit,stockNetProfit,
+        		taxAmount, addPersonCode,addPerson, addDate, alterPersonCode, alterPerson, alterDate
+        	) VALUES (
+        		#{md5},#{stockCode},#{stockName},#{buyTotal},#{stockCost},#{sellTotal},#{stockDeal},#{dealNumber},#{dealDate},#{stockProfit},#{stockNetProfit},
+        		#{taxAmount},#{addPersonCode},#{addPerson},#{addDate},#{alterPersonCode},#{alterPerson},#{alterDate}
+        	)
+    </insert>
+	<!-- 修改StockProfit 根据MD5值进行索引修改--> 
+    <update  id="updateStockProfit" parameterType="java.util.Map">
+        UPDATE g_stock_profit
+			SET stockCode = #{stockCode},
+				 stockName = #{stockName},
+				 buyTotal = #{buyTotal},
+				 stockCost = #{stockCost},
+				 sellTotal = #{sellTotal},
+				 stockDeal = #{stockDeal},
+				 dealNumber = #{dealNumber},
+				 dealDate = #{dealDate},
+				 stockProfit = #{stockProfit},
+				 stockNetProfit = #{stockNetProfit},
+				 taxAmount = #{taxAmount},
+				 addPersonCode = #{addPersonCode},
+				 addPerson = #{addPerson},
+				 addDate = #{addDate},
+				 alterPersonCode = #{alterPersonCode},
+				 alterPerson = #{alterPerson},
+				 alterDate = #{alterDate}
+			WHERE
+				(md5 = #{md5})
+    </update>
+    
+    <!-- 删除StockProfit -->  
+	<delete id="deleteStockProfit" parameterType="java.util.Map">  
+	        DELETE FROM g_stock_profit WHERE md5 = #{md5}  
+	</delete>
+    
+</mapper>

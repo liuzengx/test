@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ts.module.system.dao.SSessionLogDao">
+	<!-- 查询session --> 
+    <select id="querySessionLogListCount" resultType="Int" parameterType="java.lang.String">
+        SELECT count(*) FROM s_session_log WHERE userId = #{userId}
+    </select> 
+    <!-- 根据用户id来获取session --> 
+    <select id="querySessionLogByUserID" resultType="java.util.HashMap" parameterType="java.util.HashMap"> 
+    	SELECT * FROM s_session_log 
+    	<where>
+	        <if test="userId != null">
+	         	AND userId = #{userId} 
+	        </if>
+        </where>
+        ORDER BY startTime desc
+        <if test="page!=null and pageSize!=null">
+            limit #{page},#{pageSize}
+        </if>
+    </select>
+    <!-- 根据md5值查询session日志是否存在 --> 
+    <select id="queryCountByMd5" resultType="Int" parameterType="java.lang.String">
+        SELECT count(*) FROM s_session_log WHERE md5=#{md5}
+    </select> 
+
+	<!-- 增加session --> 
+    <insert  id="addSessionLog" parameterType="com.ts.module.system.model.SSessionLog">
+        INSERT INTO s_session_log(
+        		sessionId,hostIp,timeout,startTime,lastTime,onlineTime,userId,userName,loginName,session,md5
+        	) VALUES (
+        		#{sessionId},#{hostIp},#{timeout},#{startTime},#{lastTime},#{onlineTime},#{userId},#{userName},#{loginName},#{session},#{md5}
+        	)
+    </insert>
+	<!-- 修改session 根据MD5值进行索引修改--> 
+    <update  id="updateSessionLog" parameterType="com.ts.module.system.model.SSessionLog">
+        UPDATE s_session_log
+		SET hostIp=#{hostIp},startTime=#{startTime},lastTime=#{lastTime},onlineTime=#{onlineTime},userId=#{userId},loginName=#{loginName},
+			userName=#{userName},session=#{session},md5=#{md5}
+		WHERE md5 = #{md5}
+    </update>
+    
+    <!-- 删除session -->  
+	<delete id="deleteSessionLog" parameterType="java.util.Map">  
+	        DELETE FROM s_session_log WHERE sessionId = #{sessionId}  
+	</delete>  
+
+</mapper>

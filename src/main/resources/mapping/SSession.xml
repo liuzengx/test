@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ts.module.system.dao.SSessionDao">
+	<!-- 查询session --> 
+    <select id="queryListCount" resultType="Int">
+        SELECT count(*) FROM s_session
+    </select>
+	<!-- 查询session --> 
+    <select id="querySession" resultType="com.ts.module.system.model.SSession" parameterType="java.lang.String">
+        SELECT * FROM s_session
+        <where>
+	        <if test="sessionId != null">
+	         	and sessionId= #{sessionId}
+	        </if>
+        </where>
+    </select>
+    <!-- 根据用户名来获取session --> 
+    <select id="querySessionByUserName" resultType="java.util.HashMap" parameterType="java.util.HashMap"> 
+    	SELECT * FROM s_session 
+    	<where>
+	        <if test="userName != null">
+	         	and userName = #{userName} 
+	        </if>
+        </where>
+        ORDER BY startTime desc
+        <if test="page!=null and pageSize!=null">
+            limit #{page},#{pageSize}
+        </if>
+    </select>
+
+	<!-- 增加session --> 
+    <insert  id="addSession" parameterType="com.ts.module.system.model.SSession">
+        INSERT INTO s_session(
+        		sessionId,hostIp,timeout,startTime,lastTime,userId,userName,loginName,session
+        	) VALUES (
+        		#{sessionId},#{hostIp},#{timeout},#{startTime},#{lastTime},#{userId},#{userName},#{loginName},#{session}
+        	)
+    </insert>
+	<!-- 修改session --> 
+    <update  id="updateSession" parameterType="com.ts.module.system.model.SSession">
+        UPDATE s_session
+		SET hostIp=#{hostIp},timeout=#{timeout},startTime=#{startTime},lastTime=#{lastTime},userId=#{userId}
+		<if test="userName != null">
+         	,userName = #{userName}
+        </if>
+			,loginName=#{loginName},session=#{session}
+		WHERE sessionId = #{sessionId};
+    </update>
+    
+    <!-- 删除session -->  
+	<delete id="deleteSession" parameterType="java.util.Map">  
+	        DELETE FROM s_session WHERE sessionId = #{sessionId}  
+	</delete>  
+
+</mapper>
