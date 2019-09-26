@@ -34,7 +34,9 @@ $(function() {
 				cardView : false, // 是否显示详细视图
 				detailView : false, // 是否显示父子表
 				columns : [
-						/* {checkbox: true}, */
+						{
+							checkbox : true
+						},
 						{
 							title : '序号',
 							align : "center",
@@ -224,6 +226,81 @@ $('#stockProfit_btn_add').on('click', function() {
 	});
 
 });
+
+// 修改弹出一个页面层
+$('#stockProfit_btn_edit').on('click', function() {
+	// 获取行数据
+	var rows = $("#system_sessionslog_list").bootstrapTable('getSelections');
+	console.log(rows);
+	console.log(rows.length);
+	if (rows.length < 1 || rows.length > 1) {
+		layer.alert('请选择一条数据', {
+			icon : 0
+		});
+		return false;
+	}
+	// 打开弹框
+	layer.open({
+		type : 2,// 打开当前页面id用1，content:$('#stockProfit_add_content')，打开另一个页面用2，content:“XXX.jsp”
+		title : '记录-修改',
+		skin : 'layer-window',
+		area : [ '800px', '650px' ],
+		shadeClose : true, // 点击遮罩关闭
+		content : "views/stock/profit/edit.jsp",
+		// 父页面向子页面传值方法
+		success : function(dom) {
+			let
+			$iframeDom = $(dom[0]).find("iframe").eq(0).contents();
+			// test为子页面id
+			$iframeDom.find("#md5").val(rows[0].md5);
+			$iframeDom.find("#stockCode").val(rows[0].stockCode);
+			$iframeDom.find("#stockName").val(rows[0].stockName);
+			$iframeDom.find("#buyTotal").val(rows[0].buyTotal);
+		},
+		btn : [ '添加', '取消' ],
+		yes : function(index) {
+			var res = window["layui-layer-iframe" + index].callbackdata();
+			var obj = JSON.parse(res);
+			var stockCode = obj.stockCode;
+
+			var passengerCertificate = obj.Certificate;
+			var passengerCertificateNum = obj.CertificateNum;
+			var passengerBirthday = obj.Birthday;
+			var passengerSex = obj.Sex;
+
+			postData('edit', res);
+		}
+	});
+});
+
+// 删除
+$('#stockProfit_btn_delete').on('click', function() {
+	// 获取行数据
+	var rows = $("#system_sessionslog_list").bootstrapTable('getSelections');
+	if (rows.length < 1) {
+		layer.alert('请选择一条或多条数据进行删除', {
+			icon : 0
+		});
+		return false;
+	}
+	layer.open({
+		content : '您已选择了'+rows.length+'条数据',
+		btn : [ '确定', '取消' ],
+		yes : function(index, layero) {
+			// 按钮【按钮一】的回调
+			console.log(rows);
+			layer.close(index);
+			deldata(rows);
+		},
+		cancel : function(index, layero) {
+			// 右上角关闭回调
+			if (confirm('确定要刪除么')) { // 只有当点击confirm框的确定时，该层才会关闭
+				layer.close(index);
+			}
+			return false;
+		}
+	});
+});
 /**
  * 提交记录参数
  * 
@@ -273,39 +350,23 @@ function postData(type, jsonFormData) {
 	})
 }
 
-// 修改弹出一个页面层
-$('#stockProfit_btn_edit').on('click', function() {
-	layer.open({
-		type : 2,// 打开当前页面id用1，content:$('#stockProfit_add_content')，打开另一个页面用2，content:“XXX.jsp”
-		title : '记录-修改',
-		skin : 'layer-window',
-		area : [ '800px', '650px' ],
-		shadeClose : true, // 点击遮罩关闭
-		content : "views/stock/profit/add.jsp",
-		//父页面向子页面传值方法
-		success : function(dom) {
-			let
-			$iframeDom = $(dom[0]).find("iframe").eq(0).contents();
-			//test为子页面id
-			$iframeDom.find("#test").val("我是从父级传来的值哟……1")
+// 批量删除数据方法
+function deldata(jsonFormData) {
+	$.ajax({
+		type : 'post',
+		url : 'stock/profit/delRecord.do',
+		data : jsonFormData,
+		contentType : 'application/json;charset=utf-8',
+		success : function(data) {
+			refresh();
+			layer.alert('刪除成功', {
+				icon : 1
+			});
 		},
-		btn : [ '添加', '取消' ],
-		yes : function(index) {
-			var res = window["layui-layer-iframe" + index].callbackdata();
-			var obj = JSON.parse(res);
-			var stockCode = obj.stockCode;
-
-			/*
-			 * var passengerCertificate = obj.Certificate; var
-			 * passengerCertificateNum = obj.CertificateNum; var
-			 * passengerBirthday = obj.Birthday; var passengerSex = obj.Sex;
-			 */
-			// yes:function () {
-			postData('add', res);
+		error : function(data) {
+			layer.alert('刪除失敗', {
+				icon : 5
+			});
 		}
-	});
-});
-// 刷新列表
-function relist() {
-	// $('#system_sessionslog_list').bootStrapTable('refresh');
+	})
 }
