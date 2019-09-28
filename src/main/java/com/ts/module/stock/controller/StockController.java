@@ -137,14 +137,21 @@ public class StockController {
 	@RequestMapping(value = "stock/profit/delRecord.do", method = RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String, Object> delRecord(HttpServletRequest request, HttpServletResponse response,
-			@RequestBody String jsonStr) {
+			@RequestBody List<HashMap<String, Object>> jsonStr) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		JSONObject js = ModUtil.strToJson(jsonStr);
+		//JSONObject js = ModUtil.strToMap(jsonStr);
+		List<HashMap<String, Object>> jsonSr=jsonStr;
+		
+		
 		//json转换为map
-		map = ModUtil.JsontoMap(js);
+		//map = ModUtil.JsontoMap(js);
 		try {
-			stockProfitService.deleteStockProfit(map);
+			for (int i = 0; i < jsonSr.size(); i++) {
+				HashMap<String,Object> hashMap = jsonSr.get(i);
+				stockProfitService.deleteStockProfit(hashMap);
+			}
+			
 			result.put("rows", "success");
 		} catch (Exception e) {
 			result.put("rows", e);

@@ -315,7 +315,7 @@ function postData(type, jsonFormData) {
 	} else if (type == 'edit') {
 		url = 'stock/profit/editRecord.do';
 	}
-
+	
 	$.ajax({
 		type : 'post',
 		url : url,
@@ -352,10 +352,13 @@ function postData(type, jsonFormData) {
 
 // 批量删除数据方法
 function deldata(jsonFormData) {
+	
 	$.ajax({
 		type : 'post',
+		dataType: 'json',
 		url : 'stock/profit/delRecord.do',
-		data : jsonFormData,
+		data : JSON.stringify(jsonFormData),
+		//traditional: true,
 		contentType : 'application/json;charset=utf-8',
 		success : function(data) {
 			refresh();
