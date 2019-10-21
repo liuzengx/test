@@ -1,4 +1,4 @@
-package com.ts.module.system.service.Impl;
+package com.ts.module.system.service.impl;
 
 import java.util.HashMap;
 import java.util.List;

@@ -142,6 +142,6 @@
 	</bean>
 
 	<!--声明一个Service 注入到自定义Realm-->
-	<bean id="accountService" class="com.ts.module.system.service.Impl.ShiroServiceImpl"/>
+	<bean id="accountService" class="com.ts.module.system.service.impl.ShiroServiceImpl"/>
 	
 </beans>

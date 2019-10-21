@@ -3,11 +3,11 @@
 
 <mapper namespace="com.ts.module.system.dao.ShiroDao">
     <select id="getUserByUserName" resultType="com.ts.module.system.model.User">
-        SELECT * FROM user WHERE account= #{0}
+        SELECT * FROM s_user WHERE account= #{0}
     </select>
 
     <select id="getUserRoleByUserId" resultType="int">
-        SELECT roleid FROM user_role
+        SELECT postid as roleid FROM s_user_post
         WHERE userid = #{_parameter}
     </select>
 
