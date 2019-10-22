@@ -1,4 +1,4 @@
-package com.ts.module.system.service.Impl;
+package com.ts.module.system.service.impl;
 
 import com.ts.module.system.model.Permission;
 import com.ts.module.system.model.User;

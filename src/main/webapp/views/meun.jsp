@@ -103,7 +103,7 @@
 					<li><a data-href="system-log.html" data-title="系统日志" href="javascript:void(0)">系统日志</a></li>
 					<li><a data-href="showSessionsLogList.do" data-title="登陆日志" href="javascript:void(0)">登陆日志</a></li>
 					<li><a data-href="showSessionList.do" data-title="在线用户" href="javascript:void(0)">在线用户</a></li>
-					<li><a data-href="showUserManageList.do" data-title="用户管理" href="javascript:void(0)">用户管理</a></li>
+					<li><a data-href="sys_user_queryList.do" data-title="用户管理" href="javascript:void(0)">用户管理</a></li>
 				</ul>
 			</dd>
 		</dl>

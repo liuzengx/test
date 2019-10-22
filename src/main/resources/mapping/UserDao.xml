@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ts.module.system.dao.UserDao">
+	<!-- 查询记录数 --> 
+    <select id="queryListCount" resultType="Int">
+        SELECT count(*) FROM s_user
+    </select>
+   
+    <!-- 查询记录 --> 
+    <select id="queryList" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+        SELECT * FROM s_user 
+    	<where>
+	        <if test="userId != null">
+	         	AND userId = #{userId} 
+	        </if>
+        </where>
+        
+        <if test="page!=null and pageSize!=null">
+            limit #{page},#{pageSize}
+        </if>
+    </select>
+    <!-- 新增 --> 
+    <insert  id="addUser" parameterType="java.util.Map">
+        INSERT INTO s_user(
+        		account,password,userName,orgCode,postCode,isStop
+        	) VALUES (
+        		#{account},#{password},#{userName},#{orgCode},#{postCode},#{isStop}
+        	)
+    </insert>
+	<!-- 修改用户数据 根据id值进行索引修改--> 
+    <update  id="updateUser" parameterType="java.util.Map">
+        UPDATE s_user
+			SET account = #{account},
+				 password = #{password},
+				 userName = #{userName},
+				 orgCode = #{orgCode},
+				 postCode = #{postCode},
+				 isStop = #{isStop}
+			WHERE
+				(userId = #{userId})
+    </update>
+    
+    <!-- 删除 -->  
+	<delete id="deleteUser" parameterType="java.util.Map">  
+	        DELETE FROM s_user WHERE userId = #{userId}  
+	</delete>
+    
+</mapper>
