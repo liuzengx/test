@@ -16,6 +16,7 @@
 					<li><a data-href="showStockList.do" data-title="统计列表" href="javascript:void(0)">统计列表</a></li>
 					<li><a data-href="showTan.do" data-title="弹出框" href="javascript:void(0)">弹出框</a></li>
 					<li><a data-href="" data-title="行内编辑" href="javascript:void(0)">行内编辑</a></li>
+					<li><a data-href="showUeditor.do" data-title="富文本" href="javascript:void(0)">富文本</a></li>
 			</ul>
 		</dd>
 	</dl>

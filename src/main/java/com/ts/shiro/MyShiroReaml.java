@@ -65,9 +65,11 @@ public class MyShiroReaml extends AuthorizingRealm {
 	                		user.getPassword(), 
 	                		this.getClass().getSimpleName()
                 		);
+                System.out.println("info："+info);
 
                 return info;
         	}else {
+        		System.out.println("密码错误！");
         		throw new IncorrectCredentialsException("密码错误！");
         	}
         }
