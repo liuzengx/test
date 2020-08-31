@@ -1,0 +1,362 @@
+.icon-blank {
+    background: url('images/blank.gif') no-repeat center center;
+}
+
+.icon-add {
+    background: url('images/101.png') no-repeat center center;
+}
+
+.icon-edit {
+    background: url('images/102.png') no-repeat center center;
+}
+
+.icon-table-edit {
+    background: url('images/table_edit.png') no-repeat center center;
+}
+
+.icon-clear {
+    background: url('images/clear.png') no-repeat center center;
+}
+
+.icon-remove {
+    background: url('images/103.png') no-repeat center center;
+}
+
+.icon-setting {
+    background: url('images/set.png') no-repeat center center;
+}
+
+.icon-door_in {
+    background: url('images/door_in2.png') no-repeat center center;
+}
+
+.icon-door_out {
+    background: url('images/door_out.png') no-repeat center center;
+}
+
+.icon-database_link {
+    background: url('images/database_link.png') no-repeat center center;
+}
+
+.icon-submit {
+    background: url('images/125.png') no-repeat center center;
+}
+
+.icon-reset {
+    background: url('images/105.png') no-repeat center center;
+}
+
+.icon-lock {
+    background: url('images/lock.png') no-repeat center center;
+}
+
+.icon-openlock {
+    background: url('images/key2.png') no-repeat center center;
+}
+
+.icon-copy {
+    background: url('images/111.png') no-repeat center center;
+}
+
+.icon-link {
+    background: url('images/link.png') no-repeat center center;
+}
+
+.icon-jia {
+    background: url('images/jia.png') no-repeat center center;
+}
+
+.icon-jian {
+    background: url('images/jian.png') no-repeat center center;
+}
+
+.icon-audit {
+    background: url('images/Text-Signature.png') no-repeat center center;
+}
+
+.icon-push {
+    background: url('images/door_in2.png') no-repeat center center;
+}
+
+.icon-push-detail {
+    background: url('images/table_add.png') no-repeat center center;
+}
+
+.icon-assign {
+    background: url('images/man.png') no-repeat center center;
+}
+.user-white {
+    background: url('images/man-white.png') no-repeat center center;
+}
+
+.icon-preview {
+    background: url('images/115.png') no-repeat center center;
+}
+
+.icon-import {
+    background: url('images/146.png') no-repeat center center;
+}
+
+.icon-error {
+    background: url('images/126.png') no-repeat center center;
+}
+
+.icon-exit {
+    background: url('images/107.png') no-repeat center center;
+}
+
+.icon-periord {
+    background: url('images/164.png') no-repeat center center;
+}
+
+.icon-bodong {
+    background: url('images/905.png') no-repeat center center;
+}
+
+.icon-relation {
+    background: url('images/135.png') no-repeat center center;
+}
+
+.icon-relationAnalize {
+    background: url('images/146.png') no-repeat center center;
+}
+
+.icon-caculation {
+    background: url('images/134.png') no-repeat center center;
+}
+
+.icon-download {
+    background: url('images/111.png') no-repeat center center;
+}
+
+.icon-down2 {
+    background: url('images/down2.png') no-repeat center center;
+}
+
+.icon-down {
+    background: url('images/down.png') no-repeat center center;
+}
+
+.icon-right {
+    background: url('images/right.png') no-repeat center center;
+}
+
+.icon-login {
+    background: url('images/login.png') no-repeat center center;
+}
+
+.icon-book {
+    background: url('images/book.png') no-repeat center center;
+}
+
+.icon-doubt {
+    background: url('images/113.png') no-repeat center center;
+}
+
+.icon-question {
+    background: url('images/106.png') no-repeat center center;
+}
+
+.icon-search {
+    background: url('images/serch.png') no-repeat center center;
+}
+
+.icon-check {
+    background: url('images/116.png') no-repeat center center;
+}
+
+.icon-refresh {
+    background: url('images/105.png') no-repeat center center;
+}
+
+.icon-refresh {
+    background: url('images/105.png') no-repeat center center;
+}
+
+.icon-cut {
+    background: url('images/cut.png') no-repeat center center;
+}
+
+.icon-ok {
+    background: url('images/ok.png') no-repeat center center;
+}
+
+.icon-no {
+    background: url('images/no.png') no-repeat center center;
+}
+
+.icon-cancel {
+    background: url('images/cancel.png') no-repeat center center;
+}
+
+.icon-reload {
+    background: url('images/reload.png') no-repeat center center;
+}
+
+.icon-search {
+    background: url('images/122.png') no-repeat center center;
+}
+
+.icon-key {
+    background: url('images/key2.png') no-repeat center center;
+}
+
+.icon-print {
+    background: url('images/109.png') no-repeat center center;
+}
+
+.icon-return {
+    background: url('images/110.png') no-repeat center center;
+}
+
+.icon-help {
+    background: url('images/help.png') no-repeat center center;
+}
+
+.icon-undo {
+    background: url('images/undo.png') no-repeat center center;
+}
+
+.icon-redo {
+    background: url('images/redo.png') no-repeat center center;
+}
+
+.icon-back {
+    background: url('images/back.png') no-repeat center center;
+}
+
+.icon-sum {
+    background: url('images/sum.png') no-repeat center center;
+}
+
+.icon-tip {
+    background: url('images/tip.png') no-repeat center center;
+}
+
+.icon-filter {
+    background: url('images/121.png') no-repeat center center;
+}
+
+.icon-man {
+    background: url('images/man.png') no-repeat center center;
+}
+
+.icon-lock {
+    background: url('images/lock.png') no-repeat center center;
+}
+
+.icon-more {
+    background: url('images/more.png') no-repeat center center;
+}
+
+.icon-export {
+    background: url('images/112.png') no-repeat center center;
+}
+
+.icon-select {
+    background: url('images/select.png') no-repeat center center;
+}
+
+.icon-firstItem {
+    background: url('images/firstItem.png') no-repeat center center;
+}
+
+.icon-previousItem {
+    background: url('images/previousItem.png') no-repeat center center;
+}
+
+.icon-nextItem {
+    background: url('images/nextItem.png') no-repeat center center;
+}
+
+.icon-lastItem {
+    background: url('images/lastItem.png') no-repeat center center;
+}
+
+.icon-mini-add {
+    background: url('images/mini_add.png') no-repeat center center;
+}
+
+.icon-mini-edit {
+    background: url('images/mini_edit.png') no-repeat center center;
+}
+
+.icon-mini-refresh {
+    background: url('images/128.png') no-repeat center center;
+}
+
+.icon-back {
+    background: url('images/136.png') no-repeat center center;
+}
+
+.icon-large-picture {
+    background: url('images/large_picture.png') no-repeat center center;
+}
+
+.icon-large-clipart {
+    background: url('images/large_clipart.png') no-repeat center center;
+}
+
+.icon-large-shapes {
+    background: url('images/large_shapes.png') no-repeat center center;
+}
+
+.icon-large-smartart {
+    background: url('images/large_smartart.png') no-repeat center center;
+}
+
+.icon-large-chart {
+    background: url('images/large_chart.png') no-repeat center center;
+}
+
+.icon-chart {
+    background: url('images/chart.png') no-repeat center center;
+}
+.icon-enterprise {
+    background: url('../../../images/menu_enterprise.png') no-repeat center center;
+    background-image: url('../../../images/menu_enterprisebackground.png');
+}
+.icon-konwledgeManage {
+    background: url('../../../images/menu_konwledgeManage.png') no-repeat center center;
+    background-image: url('../../../images/menu_konwledgeManageBackground.png');
+}
+.icon-economicAnalysis {
+    background: url('../../../images/menu_economicAnalysis.png') no-repeat center center;
+    background-image: url('../../../images/menu_economicAnalysisBackground.png');
+}
+.icon-baseManage {
+    background: url('../../../images/menu_baseManage.png') no-repeat center center;
+    background-image: url('../../../images/menu_baseManageBackground.png');
+}
+.icon-dataCollection {
+    background: url('../../../images/menu_dataCollection.png') no-repeat center center;
+    background-image: url('../../../images/menu_dataCollectionBackground.png');
+}
+.icon-compositeQuery {
+    background: url('../../../images/menu_compositeQuery.png') no-repeat center center;
+    background-image: url('../../../images/menu_compositeQueryBackground.png');
+} 	
+.icon-riskManage {
+    background: url('../../../images/menu_riskManage.png') no-repeat center center;
+    background-image: url('../../../images/menu_riskManageBackground.png');
+} 
+.icon-taxService {
+    background: url('../../../images/menu_taxService.png') no-repeat center center;
+    background-image: url('../../../images/menu_taxServiceBackground.png');
+} 
+.icon-modelManage {
+    background: url('../../../images/menu_modelManage.png') no-repeat center center;
+    background-image: url('../../../images/menu_modelManageBackground.png');
+} 
+.icon-systemManage {
+    background: url('../../../images/menu_systemManage.png') no-repeat center center;
+    background-image: url('../../../images/menu_systemManageBackground.png');
+} 
+.icon-readyDeal {
+    background: url('../../../images/readyDeal.png') no-repeat center center;
+     background-image: url('../../../images/readyDealBackGround.png');
+} 
+.icon-sysatemExit {
+    background: url('../../../images/sysatemExit.png') no-repeat center center;
+    background-image: url('../../../images/systemExitBackground.png');
+} 
