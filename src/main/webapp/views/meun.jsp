@@ -20,6 +20,17 @@
 			</ul>
 		</dd>
 	</dl>
+	<dl id="menu-crawler">
+			<dt><i class="Hui-iconfont">&#xe61a;</i> 爬虫管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="showStockViewList.do" data-title="历史资金" href="javascript:void(0)">历史资金</a></li>
+					<li><a data-href="showStockDailyPriceList.do" data-title="当日价格" href="javascript:void(0)">当日价格</a></li>
+					<li><a data-href="showCrawlerTaskList.do" data-title="任务列表" href="javascript:void(0)">任务列表</a></li>
+					<li><a data-href="showCrawlerCronJobList.do" data-title="定时任务" href="javascript:void(0)">定时任务</a></li>
+			</ul>
+		</dd>
+	</dl>
 		<dl id="menu-article">
 			<dt><i class="Hui-iconfont">&#xe616;</i> 资讯管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>

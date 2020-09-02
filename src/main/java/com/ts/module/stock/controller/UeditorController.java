@@ -62,7 +62,7 @@ public class UeditorController {
         return null;
     }
 
-    public void handle() throws Exception {
+    /*public void handle() throws Exception {
         HttpServletRequest request = HttpServletContextKit.getHttpServletRequest();
         HttpServletResponse response = HttpServletContextKit.getHttpServletResponse();
         PrintWriter out = response.getWriter();
@@ -73,5 +73,5 @@ public class UeditorController {
         String rootPath = ClassUtil.getClassPath();
         log.debug("ueditor path={}", rootPath);
         out.write(new ActionEnter(request, rootPath).exec());
-    }
+    }*/
 }

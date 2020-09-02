@@ -72,7 +72,7 @@
 <script type="text/javascript" src="css/lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
 <script type="text/javascript">
 	$(function(){
-		debugger;
+		//debugger;
 		/* if(null==request.getSession(false)){ 
 			   if(true==request.getSession(true).isNew()){ 
 			      } 
