@@ -16,6 +16,18 @@
 					<li><a data-href="showStockList.do" data-title="统计列表" href="javascript:void(0)">统计列表</a></li>
 					<li><a data-href="showTan.do" data-title="弹出框" href="javascript:void(0)">弹出框</a></li>
 					<li><a data-href="" data-title="行内编辑" href="javascript:void(0)">行内编辑</a></li>
+					<li><a data-href="showUeditor.do" data-title="富文本" href="javascript:void(0)">富文本</a></li>
+			</ul>
+		</dd>
+	</dl>
+	<dl id="menu-crawler">
+			<dt><i class="Hui-iconfont">&#xe61a;</i> 爬虫管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+					<li><a data-href="showStockViewList.do" data-title="历史资金" href="javascript:void(0)">历史资金</a></li>
+					<li><a data-href="showStockDailyPriceList.do" data-title="当日价格" href="javascript:void(0)">当日价格</a></li>
+					<li><a data-href="showCrawlerTaskList.do" data-title="任务列表" href="javascript:void(0)">任务列表</a></li>
+					<li><a data-href="showCrawlerCronJobList.do" data-title="定时任务" href="javascript:void(0)">定时任务</a></li>
 			</ul>
 		</dd>
 	</dl>

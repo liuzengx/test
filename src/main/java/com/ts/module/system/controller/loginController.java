@@ -36,7 +36,8 @@ public class loginController{
     private Logger logger = Logger.getLogger(loginController.class);
     @RequestMapping(value = "/login")
     public String Login(HttpServletRequest request, Model model){
-    	
+    	String path = request.getSession().getClass().getResource("/").getPath();
+    	System.out.println("path： "+path);
         return "login";
     }
     @RequestMapping(value = "/index.do")
