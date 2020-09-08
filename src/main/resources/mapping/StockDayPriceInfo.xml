@@ -3,12 +3,12 @@
 <mapper namespace="com.ts.module.crawler.dao.StockDayPriceInfoDao">
 	<!-- 查询记录数 --> 
     <select id="queryListCount" resultType="Int">
-        SELECT count(*) FROM pc.StockDayPriceInfo
+        SELECT count(*) FROM pc.stockdaypriceinfo
     </select>
    
     <!-- 查询记录 --> 
     <select id="queryList" resultType="java.util.HashMap" parameterType="java.util.HashMap">
-        SELECT * FROM pc.StockDayPriceInfo ORDER BY fDate DESC
+        SELECT * FROM pc.stockdaypriceinfo ORDER BY fDate DESC
     	<where>
 	        <if test="MD5 != null">
 	         	AND MD5 = #{MD5} 
@@ -21,7 +21,7 @@
     
     <!-- 删除 -->  
 	<delete id="delete" parameterType="java.util.Map">  
-	        DELETE FROM pc.StockDayPriceInfo WHERE md5 = #{md5}  
+	        DELETE FROM pc.stockdaypriceinfo WHERE md5 = #{md5}  
 	</delete>
     
 </mapper>

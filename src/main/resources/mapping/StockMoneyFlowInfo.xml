@@ -3,12 +3,12 @@
 <mapper namespace="com.ts.module.crawler.dao.StockMoneyFlowInfoDao">
 	<!-- 查询记录数 --> 
     <select id="queryListCount" resultType="Int">
-        SELECT count(*) FROM pc.stockMoneyFlowInfo
+        SELECT count(*) FROM pc.stockmoneyflowinfo
     </select>
    
     <!-- 查询记录 --> 
     <select id="queryList" resultType="java.util.HashMap" parameterType="java.util.HashMap">
-        SELECT * FROM pc.stockMoneyFlowInfo ORDER BY fDate DESC
+        SELECT * FROM pc.stockmoneyflowinfo ORDER BY fDate DESC
     	<where>
 	        <if test="MD5 != null">
 	         	AND MD5 = #{MD5} 
@@ -21,7 +21,7 @@
     
     <!-- 删除 -->  
 	<delete id="delete" parameterType="java.util.Map">  
-	        DELETE FROM pc.stockMoneyFlowInfo WHERE md5 = #{md5}  
+	        DELETE FROM pc.stockmoneyflowinfo WHERE md5 = #{md5}  
 	</delete>
     
 </mapper>
