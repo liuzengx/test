@@ -3,12 +3,13 @@ $(function(){
 	
 function initTable(){
     $('#stock_view_list').datagrid({
-		url: 'stock/profit/getList.do',
+		url: 'crawler/stockView/getList.do',
 		queryParams: {
 		},
 		method: 'get',
 		striped:true,
 		pagination:true,
+		rownumbers:true,
 		pageNmber:1,
         pageSize: 50,
         //onDblClickRow : update,
@@ -18,12 +19,12 @@ function initTable(){
 		header:'历史资金',
 		frozenColumns:[
 		               [
-							{field:'ROWNUM',title:'序号',width:40,align:'left',halign:'center'},  
-							{field:'FSHOWCODE',title:'股票代码',width:100,align:'left',halign:'center'},    
-							{field:'FENTCODE',title:'股票名称',width:100,align:'left',halign:'center',sortable:true},
-							{field:'FENTCODE2',title:'日期',width:100,align:'left',halign:'center'},
-							{field:'STOCKNAME',title:'收盘价',width:100,align:'left',halign:'center'}, 
-					        {field:'FTYPENAME',title:'涨跌幅',width:100,align:'center',halign:'center'}
+							/*{field:'ROWNUM',title:'序号',width:40,align:'left',halign:'center'},*/  
+							{field:'fcode',title:'股票代码',width:100,align:'center',halign:'center'},    
+							{field:'fname',title:'股票名称',width:100,align:'center',halign:'center',sortable:true},
+							{field:'fdate',title:'日期',width:100,align:'center',halign:'center'},
+							{field:'spj',title:'收盘价',width:100,align:'center',halign:'center'}, 
+					        {field:'zdf',title:'涨跌幅',width:100,align:'center',halign:'center'}
 		                ]
 		               ],
 		columns:[
@@ -34,20 +35,20 @@ function initTable(){
 		          {title:'小单净流入',colspan:2,align:'center',halign:'center'}
 		         ],
 		         [       
-		          {field:'FAREANAME',title:'净额',width:100,align:'left',halign:'center'},
-		          {field:'FAREANAME',title:'净占比',width:100,align:'left',halign:'center'},
+		          {field:'zljlrje',title:'净额',width:100,align:'center',halign:'center'},
+		          {field:'zljzb',title:'净占比',width:100,align:'center',halign:'center'},
 		          
-		          {field:'FAREANAME',title:'净额',width:100,align:'left',halign:'center'},
-		          {field:'FAREANAME',title:'净占比',width:100,align:'left',halign:'center'},
+		          {field:'cddjlrje',title:'净额',width:100,align:'center',halign:'center'},
+		          {field:'cddjzb',title:'净占比',width:100,align:'center',halign:'center'},
 		          
-		          {field:'FAREANAME',title:'净额',width:100,align:'left',halign:'center'},
-		          {field:'FAREANAME',title:'净占比',width:100,align:'left',halign:'center'},
+		          {field:'ddjlrje',title:'净额',width:100,align:'center',halign:'center'},
+		          {field:'ddjzb',title:'净占比',width:100,align:'center',halign:'center'},
 		          
-		          {field:'FAREANAME',title:'净额',width:100,align:'left',halign:'center'},
-		          {field:'FAREANAME',title:'净占比',width:100,align:'left',halign:'center'},
+		          {field:'zdjlrje',title:'净额',width:100,align:'center',halign:'center'},
+		          {field:'zdjzb',title:'净占比',width:100,align:'center',halign:'center'},
 		          
-		          {field:'FAREANAME',title:'净额',width:100,align:'left',halign:'center'},
-		          {field:'FAREANAME',title:'净占比',width:100,align:'left',halign:'center'}
+		          {field:'xdjlrje',title:'净额',width:100,align:'center',halign:'center'},
+		          {field:'xdjzb',title:'净占比',width:100,align:'center',halign:'center'}
 		      ]],  
 		singleSelect:true,
 		selectOnCheck:true,
@@ -56,9 +57,6 @@ function initTable(){
 		defaultRowContextMenu:true,
 		toolbar: '#stock_view_toolbar'
 	});
-   
 	}
-    
-    
 });
 

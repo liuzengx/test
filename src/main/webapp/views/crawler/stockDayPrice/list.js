@@ -3,12 +3,13 @@ $(function(){
 	
 function initTable(){
     $('#stock_dayprice_list').datagrid({
-		//url: 'stock/profit/getList.do',
+		url: 'crawler/stockDayPrice/getList.do',
 		queryParams: {
 		},
 		method: 'get',
 		striped:true,
 		pagination:true,
+		rownumbers:true,//序号
 		pageNmber:1,
         pageSize: 50,
         //onDblClickRow : update,
@@ -18,32 +19,32 @@ function initTable(){
 		header:'历史资金',
 		frozenColumns:[
 		               [
-							{field:'ROWNUM',title:'序号',width:40,align:'left',halign:'center'},  
-							{field:'FSHOWCODE',title:'股票代码',width:100,align:'left',halign:'center'},    
-							{field:'FENTCODE',title:'股票名称',width:100,align:'left',halign:'center',sortable:true},
-							{field:'FENTCODE2',title:'日期',width:100,align:'left',halign:'center'},
-							{field:'STOCKNAME',title:'收盘价',width:100,align:'left',halign:'center'}
+							/*{field:'ROWNUM',title:'序号',width:40,align:'left',halign:'center'},*/  
+							{field:'fcode',title:'股票代码',width:100,align:'center',halign:'center'},    
+							{field:'fname',title:'股票名称',width:100,align:'center',halign:'center',sortable:true},
+							{field:'fdate',title:'日期',width:100,align:'center',halign:'center'},
+							{field:'spj',title:'收盘价',width:100,align:'center',halign:'center'}
 		                ]
 		               ],
 		columns:[
 		         [       
-		          {field:'FAREANAME',title:'今日最高',width:100,align:'left',halign:'center'},
-		          {field:'FAREANAME',title:'今日最低',width:100,align:'left',halign:'center'},
+		          {field:'zgj',title:'今日最高',width:100,align:'center',halign:'center'},
+		          {field:'zdj',title:'今日最低',width:100,align:'center',halign:'center'},
 		          
-		          {field:'FAREANAME',title:'开盘价',width:100,align:'left',halign:'center'},
-		          {field:'FAREANAME',title:'成交量(手)',width:100,align:'left',halign:'center'},
+		          {field:'kpj',title:'开盘价',width:100,align:'center',halign:'center'},
+		          {field:'cjl',title:'成交量(手)',width:100,align:'center',halign:'center'},
 		          
-		          {field:'FAREANAME',title:'成交额(元)',width:100,align:'left',halign:'center'},
-		          {field:'FAREANAME',title:'量比',width:100,align:'left',halign:'center'},
+		          {field:'cje',title:'成交额(元)',width:100,align:'center',halign:'center'},
+		          {field:'lb',title:'量比',width:100,align:'center',halign:'center'},
 		          
-		          {field:'FAREANAME',title:'昨天收盘价',width:100,align:'left',halign:'center'},
-		          {field:'FAREANAME',title:'市盈率',width:100,align:'left',halign:'center'},
+		          {field:'zspj',title:'昨天收盘价',width:100,align:'center',halign:'center'},
+		          {field:'syl',title:'市盈率',width:100,align:'center',halign:'center'},
 		          
-		          {field:'FAREANAME',title:'换手率(%)',width:100,align:'left',halign:'center'},
-		          {field:'FAREANAME',title:'涨跌额',width:100,align:'left',halign:'center'},
+		          {field:'hsl',title:'换手率(%)',width:100,align:'center',halign:'center'},
+		          {field:'zde',title:'涨跌额',width:100,align:'center',halign:'center'},
 		          
-		          {field:'FAREANAME',title:'涨跌幅(%)',width:100,align:'left',halign:'center'},
-		          {field:'FAREANAME',title:'振幅(%)',width:100,align:'left',halign:'center'}
+		          {field:'zdf',title:'涨跌幅(%)',width:100,align:'center',halign:'center'},
+		          {field:'zf',title:'振幅(%)',width:100,align:'center',halign:'center'}
 		      ]],  
 		singleSelect:true,
 		selectOnCheck:true,

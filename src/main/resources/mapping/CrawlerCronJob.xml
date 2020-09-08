@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ts.module.crawler.dao.CrawlerCronJobDao">
+	<!-- 查询记录数 --> 
+    <select id="queryListCount" resultType="Int">
+        SELECT count(*) FROM pc.crawlerurltask where isTimed=1
+    </select>
+   
+    <!-- 查询记录 --> 
+    <select id="queryList" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+        SELECT
+			id,url,
+			isSubPage,
+			isCookie,
+			isVeryfyCode,
+			isTimed,
+			state,
+			priority,
+			isget,
+			md5,
+			pageNum,
+			DATE_FORMAT(
+				addTime,
+				'%Y-%m-%d %H:%i:%s'
+			) addTime,
+			DATE_FORMAT(
+				updateTime,
+				'%Y-%m-%d %H:%i:%s'
+			) updateTime,
+			jsoupXML,
+			espacial,
+			isStart,
+			sleepTime,
+			intervalTime,
+			DATE_FORMAT(
+				executeTime,
+				'%Y-%m-%d %H:%i:%s'
+			) executeTime,
+			type,
+			totalPage,
+			myCookie,
+			requestType,
+			pid,
+			tname
+		FROM
+			pc.crawlerurltask where isTimed=1 ORDER BY addTime DESC
+    	<where>
+	        <if test="MD5 != null">
+	         	AND MD5 = #{MD5} 
+	        </if>
+        </where>
+        <if test="firstResult!=null and maxResult!=null">
+            limit #{firstResult},#{maxResult}
+        </if>
+    </select>
+    
+    <!-- 删除 -->  
+	<delete id="delete" parameterType="java.util.Map">  
+	        DELETE FROM pc.crawlerurltask WHERE md5 = #{md5}  
+	</delete>
+    
+</mapper>
