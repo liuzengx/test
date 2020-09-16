@@ -44,6 +44,11 @@ public class CrawlerController {
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		List<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 		HashMap<String, Object> map = new HashMap<String, Object>();
+		String fdateq = request.getParameter("fdateq");
+		String fdatez = request.getParameter("fdatez");
+		String isTimed = request.getParameter("isTimed");
+		String state = request.getParameter("state");
+		String jsoupXML = request.getParameter("jsoupXML");
 
 		int page = Integer.parseInt(request.getParameter("page"));
 		int pageSize = Integer.parseInt(request.getParameter("rows"));
@@ -54,6 +59,11 @@ public class CrawlerController {
 			int firstResult = DbUtils.generatePaginationFirstResult(page, pageSize);
 			map.put("firstResult", firstResult);
 			map.put("maxResult", maxResult);
+			map.put("fdateq", fdateq);
+			map.put("fdatez", fdatez);
+			map.put("isTimed", isTimed);
+			map.put("state", state);
+			map.put("jsoupXML", jsoupXML);
 			list = crawlerUrlTaskService.queryList(map);
 			total = crawlerUrlTaskService.queryListCount();
 

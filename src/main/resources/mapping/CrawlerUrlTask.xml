@@ -43,12 +43,25 @@
 			pid,
 			tname
 		FROM
-			pc.crawlerurltask ORDER BY addTime DESC
+			pc.crawlerurltask
     	<where>
-	        <if test="MD5 != null">
-	         	AND MD5 = #{MD5} 
+	        <if test="fdateq != null and fdateq !=''.toString()">
+	         	AND addTime >= #{fdateq} 
+	        </if>
+	        <if test="fdatez != null and fdatez !=''.toString()">
+	         	<![CDATA[ AND addTime <= #{fdatez} ]]> 
+	        </if>
+	        <if test="isTimed != null and isTimed !=''.toString()">
+	         	AND isTimed = #{isTimed} 
+	        </if>
+	        <if test="state != null and state !=''.toString()">
+	         	AND state = #{state} 
+	        </if>
+	        <if test="jsoupXML != null and jsoupXML !=''.toString()">
+	         	AND jsoupXML = #{jsoupXML} 
 	        </if>
         </where>
+        ORDER BY addTime DESC
         <if test="firstResult!=null and maxResult!=null">
             limit #{firstResult},#{maxResult}
         </if>

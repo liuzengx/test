@@ -1,8 +1,25 @@
 $(function(){
 	initTable();
 	
+	function reloadMyGroupList(){
+		var fdateq = $("#crawler_task_list_fdate_q").datebox('getValue');
+		var fdatez = $("#crawler_task_list_fdate_z").datebox('getValue');
+		var isTimed = $("#crawler_task_list_isTimed").combobox('getValue');
+		var state = $("#crawler_task_list_state").combobox('getValue');
+		var jsoupXML = $("#crawler_task_list_jsoupXML").val();
+		console.info("fdateq:"+fdateq+" fdatez:"+fdatez+" isTimed:"+isTimed+" state:"+state+" jsoupXML:"+jsoupXML);
+		//if(fdateq==""||fcode=="")return;
+		$('#crawler_task_list').datagrid('reload',{
+			fdateq: fdateq,
+			fdatez:fdatez,
+			isTimed: isTimed,
+			state: state,
+			jsoupXML: jsoupXML,
+		}).datagrid('unselectAll');
+	}
+	
 function initTable(){
-    $('#stock_dayprice_list').datagrid({
+    $('#crawler_task_list').datagrid({
 		url: 'crawler/crawlerTask/getList.do',
 		queryParams: {
 		},
@@ -42,7 +59,7 @@ function initTable(){
 		checkOnSelect:true,
 		defaultHeaderContextMenu:true,
 		defaultRowContextMenu:true,
-		toolbar: '#stock_dayprice_toolbar'
+		toolbar: '#crawler_task_toolbar'
 	});
    
 	}
@@ -60,6 +77,19 @@ function initTable(){
 	    // 可根据需要在这里定义时间格式  
 	    return y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d) + ' ' + (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i) + ':' + (s < 10 ? '0' + s : s);
 	}
+	//查询事件
+	$("#crawler_task_list_search").click(function(){
+		reloadMyGroupList();
+	});
+	//重置查询条件事件
+	$("#crawler_task_list_reset").click(function(){
+		$("#crawler_task_list_fdate_q").datebox('setValue', '');
+		$("#crawler_task_list_fdate_z").datebox('setValue', '');
+		$("#crawler_task_list_isTimed").combobox('setValue', '');
+		$("#crawler_task_list_state").combobox('setValue', '');
+		$("#crawler_task_list_jsoupXML").val('');
+		reloadMyGroupList();
+	});
     
 });
 

@@ -8,12 +8,22 @@
    
     <!-- 查询记录 --> 
     <select id="queryList" resultType="java.util.HashMap" parameterType="java.util.HashMap">
-        SELECT * FROM pc.stockdaypriceinfo ORDER BY fDate DESC
+        SELECT * FROM pc.stockdaypriceinfo 
     	<where>
-	        <if test="MD5 != null">
-	         	AND MD5 = #{MD5} 
+	        <if test="fdateq != null and fdateq !=''.toString()">
+	         	AND fDate >= #{fdateq} 
+	        </if>
+	        <if test="fdatez != null and fdatez !=''.toString()">
+	         	<![CDATA[ AND fDate <= #{fdatez} ]]> 
+	        </if>
+	        <if test="fCode != null and fCode !=''.toString()">
+	         	AND fCode = #{fCode} 
+	        </if>
+	        <if test="fName != null and fName !=''.toString()">
+	         	AND fName = #{fName} 
 	        </if>
         </where>
+        ORDER BY fDate DESC
         <if test="firstResult!=null and maxResult!=null">
             limit #{firstResult},#{maxResult}
         </if>
