@@ -7,6 +7,8 @@
 <title>首页</title>
 </head>
 <body style="height: 100%;background-color: #A6F8AC">
-	<h1>首页内容待开发......</h1>
+	<!-- <div class="p10" style="background-color:red;height: 100%">
+	asdgfsdgfg
+	</div> -->
 </body>
 </html>

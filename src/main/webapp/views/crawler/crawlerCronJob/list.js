@@ -34,7 +34,7 @@ function initTable(){
 		          {field:'addTime',title:'添加时间',width:130,align:'center',halign:'center'},
 		          {field:'updateTime',title:'修改时间',width:130,align:'center',halign:'center'},
 		          
-		          {field:'intervalTime',title:'间隔时间(分钟)',width:100,align:'center',halign:'center'},
+		          {field:'intervalTime',title:'间隔时间(小时)',width:100,align:'center',halign:'center'},
 		          {field:'executeTime',title:'定时执行时间',width:130,align:'center',halign:'center'},
 		          
 		          {field:'tname',title:'任务名称',width:200,align:'center',halign:'center'},

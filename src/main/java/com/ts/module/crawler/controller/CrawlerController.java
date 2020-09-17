@@ -66,6 +66,7 @@ public class CrawlerController {
 			map.put("jsoupXML", jsoupXML);
 			list = crawlerUrlTaskService.queryList(map);
 			total = crawlerUrlTaskService.queryListCount();
+			System.out.println(":::::"+list.size());
 
 		} catch (Exception e) {
 			System.out.println("ttt::" + e);
