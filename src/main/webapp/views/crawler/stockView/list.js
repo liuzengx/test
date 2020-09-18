@@ -38,8 +38,26 @@ $(function(){
 								{field:'fcode',title:'股票代码',width:100,align:'center',halign:'center'},    
 								{field:'fname',title:'股票名称',width:100,align:'center',halign:'center',sortable:true},
 								{field:'fdate',title:'日期',width:100,align:'center',halign:'center'},
-								{field:'spj',title:'收盘价',width:100,align:'center',halign:'center'}, 
-						        {field:'zdf',title:'涨跌幅',width:100,align:'center',halign:'center'}
+								{field:'spj',title:'收盘价',width:100,align:'center',halign:'center',
+									formatter:function(val,row,value){
+										  var a=row.zdf+"";
+						            		if (a.indexOf('-') == -1) {
+						            			return '<span style="color:red" >'+row.spj+'</span>';
+											}else{
+												return '<span style="color:#17A046" >'+row.spj+'</span>';
+											}
+									  }
+								}, 
+						        {field:'zdf',title:'涨跌幅',width:100,align:'center',halign:'center',
+									formatter:function(val,row,value){
+										  var a=row.zdf+"";
+						            		if (a.indexOf('-') == -1) {
+						            			return '<span style="color:red" >'+row.zdf+'</span>';
+											}else{
+												return '<span style="color:#17A046" >'+row.zdf+'</span>';
+											}
+									  }
+						        }
 			                ]
 			               ],
 			columns:[
@@ -50,20 +68,110 @@ $(function(){
 			          {title:'小单净流入',colspan:2,align:'center',halign:'center'}
 			         ],
 			         [       
-			          {field:'zljlrje',title:'净额',width:100,align:'center',halign:'center'},
-			          {field:'zljzb',title:'净占比',width:100,align:'center',halign:'center'},
+			          {field:'zljlrje',title:'净额',width:100,align:'center',halign:'center',
+			        	  formatter:function(val,row,value){
+							  var a=row.zljzb+"";
+			            		if (a.indexOf('-') == -1) {
+			            			return '<span style="color:red" >'+row.zljlrje+'</span>';
+								}else{
+									return '<span style="color:#17A046" >'+row.zljlrje+'</span>';
+								}
+						  }  
+			          },
+			          {field:'zljzb',title:'净占比',width:100,align:'center',halign:'center',
+			        	  formatter:function(val,row,value){
+							  var a=row.zljzb+"";
+			            		if (a.indexOf('-') == -1) {
+			            			return '<span style="color:red" >'+row.zljzb+'</span>';
+								}else{
+									return '<span style="color:#17A046" >'+row.zljzb+'</span>';
+								}
+						  }
+			          },
 			          
-			          {field:'cddjlrje',title:'净额',width:100,align:'center',halign:'center'},
-			          {field:'cddjzb',title:'净占比',width:100,align:'center',halign:'center'},
+			          {field:'cddjlrje',title:'净额',width:100,align:'center',halign:'center',
+			        	  formatter:function(val,row,value){
+							  var a=row.cddjzb+"";
+			            		if (a.indexOf('-') == -1) {
+			            			return '<span style="color:red" >'+row.cddjlrje+'</span>';
+								}else{
+									return '<span style="color:#17A046" >'+row.cddjlrje+'</span>';
+								}
+						  }   
+			          },
+			          {field:'cddjzb',title:'净占比',width:100,align:'center',halign:'center',
+			        	  formatter:function(val,row,value){
+							  var a=row.cddjzb+"";
+			            		if (a.indexOf('-') == -1) {
+			            			return '<span style="color:red" >'+row.cddjzb+'</span>';
+								}else{
+									return '<span style="color:#17A046" >'+row.cddjzb+'</span>';
+								}
+						  }  
+			          },
 			          
-			          {field:'ddjlrje',title:'净额',width:100,align:'center',halign:'center'},
-			          {field:'ddjzb',title:'净占比',width:100,align:'center',halign:'center'},
+			          {field:'ddjlrje',title:'净额',width:100,align:'center',halign:'center',
+			        	  formatter:function(val,row,value){
+							  var a=row.ddjzb+"";
+			            		if (a.indexOf('-') == -1) {
+			            			return '<span style="color:red" >'+row.ddjlrje+'</span>';
+								}else{
+									return '<span style="color:#17A046" >'+row.ddjlrje+'</span>';
+								}
+						  }   
+			          },
+			          {field:'ddjzb',title:'净占比',width:100,align:'center',halign:'center',
+			        	  formatter:function(val,row,value){
+							  var a=row.ddjzb+"";
+			            		if (a.indexOf('-') == -1) {
+			            			return '<span style="color:red" >'+row.ddjzb+'</span>';
+								}else{
+									return '<span style="color:#17A046" >'+row.ddjzb+'</span>';
+								}
+						  }   
+			          },
 			          
-			          {field:'zdjlrje',title:'净额',width:100,align:'center',halign:'center'},
-			          {field:'zdjzb',title:'净占比',width:100,align:'center',halign:'center'},
+			          {field:'zdjlrje',title:'净额',width:100,align:'center',halign:'center',
+			        	  formatter:function(val,row,value){
+							  var a=row.zdjzb+"";
+			            		if (a.indexOf('-') == -1) {
+			            			return '<span style="color:red" >'+row.zdjlrje+'</span>';
+								}else{
+									return '<span style="color:#17A046" >'+row.zdjlrje+'</span>';
+								}
+						  }   
+			          },
+			          {field:'zdjzb',title:'净占比',width:100,align:'center',halign:'center',
+			        	  formatter:function(val,row,value){
+							  var a=row.zdjzb+"";
+			            		if (a.indexOf('-') == -1) {
+			            			return '<span style="color:red" >'+row.zdjzb+'</span>';
+								}else{
+									return '<span style="color:#17A046" >'+row.zdjzb+'</span>';
+								}
+						  }   
+			          },
 			          
-			          {field:'xdjlrje',title:'净额',width:100,align:'center',halign:'center'},
-			          {field:'xdjzb',title:'净占比',width:100,align:'center',halign:'center'}
+			          {field:'xdjlrje',title:'净额',width:100,align:'center',halign:'center',
+			        	  formatter:function(val,row,value){
+							  var a=row.xdjzb+"";
+			            		if (a.indexOf('-') == -1) {
+			            			return '<span style="color:red" >'+row.xdjlrje+'</span>';
+								}else{
+									return '<span style="color:#17A046" >'+row.xdjlrje+'</span>';
+								}
+						  }  
+			          },
+			          {field:'xdjzb',title:'净占比',width:100,align:'center',halign:'center',
+			        	  formatter:function(val,row,value){
+							  var a=row.xdjzb+"";
+			            		if (a.indexOf('-') == -1) {
+			            			return '<span style="color:red" >'+row.xdjzb+'</span>';
+								}else{
+									return '<span style="color:#17A046" >'+row.xdjzb+'</span>';
+								}
+						  }   
+			          }
 			      ]],  
 			singleSelect:true,
 			selectOnCheck:true,

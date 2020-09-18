@@ -38,13 +38,40 @@ $(function(){
 								{field:'fname',title:'股票名称',width:100,align:'center',halign:'center',sortable:true},
 								{field:'fdate',title:'日期',width:100,align:'center',halign:'center'},
 								{field:'kpj',title:'开盘价',width:80,align:'center',halign:'center'}, 
-						        {field:'spj',title:'收盘价',width:80,align:'center',halign:'center'}
+						        {field:'spj',title:'收盘价',width:80,align:'center',halign:'center',
+						        	formatter:function(val,row,value){
+										  var a=row.zdf+"";
+						            		if (a.indexOf('-') == -1) {
+						            			return '<span style="color:red" >'+row.spj+'</span>';
+											}else{
+												return '<span style="color:#17A046" >'+row.spj+'</span>';
+											}
+									  }
+						        }
 			                ]
 			               ],
 			columns:[
 			         [
-			          {field:'zdf',title:'涨跌幅',width:80,align:'center',halign:'center'},
-			          {field:'spkpcj',title:'开盘收盘差价',width:80,align:'right',halign:'center'},
+			          {field:'zdf',title:'涨跌幅',width:80,align:'center',halign:'center',
+			        	  formatter:function(val,row,value){
+							  var a=row.zdf+"";
+			            		if (a.indexOf('-') == -1) {
+			            			return '<span style="color:red" >'+row.zdf+'</span>';
+								}else{
+									return '<span style="color:#17A046" >'+row.zdf+'</span>';
+								}
+						  } 
+			          },
+			          {field:'spkpcj',title:'开盘收盘差价',width:80,align:'right',halign:'center',
+			        	  formatter:function(val,row,value){
+							  var a=row.zdf+"";
+			            		if (a.indexOf('-') == -1) {
+			            			return '<span style="color:red" >'+row.spkpcj+'</span>';
+								}else{
+									return '<span style="color:#17A046" >'+row.spkpcj+'</span>';
+								}
+						  }  
+			          },
 			          
 			          {field:'zdj',title:'最低价',width:80,align:'center',halign:'center'},
 			          {field:'zgj',title:'最高价',width:80,align:'center',halign:'center'},
@@ -55,7 +82,16 @@ $(function(){
 			          {field:'wqgztsy',title:'5千股做T收益',width:100,align:'right',halign:'center'},
 			          {field:'zjrq',title:'资金日期',width:100,align:'center',halign:'center'},
 			          
-			          {field:'zljlrje',title:'主力资金净流入',width:100,align:'center',halign:'center'}
+			          {field:'zljlrje',title:'主力资金净流入',width:100,align:'center',halign:'center',
+			        	  formatter:function(val,row,value){
+							  var a=row.zljlrje+"";
+			            		if (a.indexOf('-') == -1) {
+			            			return '<span style="color:red" >'+row.zljlrje+'</span>';
+								}else{
+									return '<span style="color:#17A046" >'+row.zljlrje+'</span>';
+								}
+						  }    
+			          }
 			         ]  
 			      ],  
 			singleSelect:true,
