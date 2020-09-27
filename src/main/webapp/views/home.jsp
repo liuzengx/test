@@ -24,12 +24,12 @@
 <body style="height: 656px;background-color: #A6F8AC">
 	<div style="height:100%;width: 100%">
 		<div style="height:50%;">
-		  	<div style="float:left;background-color:blue;height:100%;width:50%;">第一个DIV盒子</div> 
-			<div style="float:left;background-color:red;height:100%;width:50%;">第二个DIV盒子</div>
+		  	<div style="float:left;background-color:#A6F9AC;height:100%;width:50%;">第一个DIV盒子</div> 
+			<div style="float:left;background-color:#A6F5AC;height:100%;width:50%;">第二个DIV盒子</div>
 		</div>
 		<div style="background-color:green;height:50%;">
-			<div style="float:left;background-color:red;height:100%;width:50%;">第一个DIV盒子</div> 
-			<div style="float:left;background-color:blue;height:100%;width:50%;">第二个DIV盒子</div>
+			<div style="float:left;background-color:#A6F9AC;height:100%;width:50%;">第一个DIV盒子</div> 
+			<div style="float:left;background-color:#A6F5AC;height:100%;width:50%;">第二个DIV盒子</div>
 		</div>
 	</div>
 	

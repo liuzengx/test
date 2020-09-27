@@ -27,6 +27,7 @@
 					<li><a data-href="showStockViewList.do" data-title="历史资金" href="javascript:void(0)">历史资金</a></li>
 					<li><a data-href="showStockDailyPriceList.do" data-title="当日价格" href="javascript:void(0)">当日价格</a></li>
 					<li><a data-href="showStockDataAnalysisList.do" data-title="数据分析" href="javascript:void(0)">数据分析</a></li>
+					<li><a data-href="showStockAnalysisReportList.do" data-title="分析报告" href="javascript:void(0)">分析报告</a></li>
 					<li><a data-href="showCrawlerTaskList.do" data-title="任务列表" href="javascript:void(0)">任务列表</a></li>
 					<li><a data-href="showCrawlerCronJobList.do" data-title="定时任务" href="javascript:void(0)">定时任务</a></li>
 			</ul>

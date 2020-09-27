@@ -26,6 +26,29 @@ public class StockDataAnalysisController {
 
 		return "crawler/stockDataAnalysis/list";
 	}
+	/*数据分析报告*/
+	@RequestMapping("/showStockAnalysisReportList.do")
+	public String analysisList(HttpServletRequest request, HttpServletResponse response, Model model) {
+		// model.addAttribute("sessions", sessions);
+		HashMap<String, Object> hm = new HashMap<String, Object>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
+//		String jcAjxxUuid = request.getParameter("jcAjxxUuid");
+		map.put("firstResult", 1);
+		map.put("maxResult", 1);
+		map.put("fdateq", null);
+		map.put("fdatez", null);
+		map.put("fCode", 300188);
+		map.put("fName", null);
+		
+//        List<HashMap<String, Object>> list = InspectQueryService.getDetail(jcAjxxUuid);
+		List<HashMap<String, Object>> list = stockDataAnalysisService.queryList(map);
+        if (list != null && list.size() > 0) {
+            hm = list.iterator().next();
+        }
+        model.addAttribute("hm", hm);
+
+		return "crawler/stockAnalysisReport/list";
+	}
 	/*获取数据分析List*/
 	@RequestMapping(value = "crawler/stockDataAnalysis/getList.do")
 	@ResponseBody
