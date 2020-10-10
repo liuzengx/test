@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ts.module.crawler.dao.StockMoneyFlowInfoDao">
+	<!-- 查询记录数 --> 
+    <select id="queryListCount" resultType="Int">
+        SELECT count(*) FROM pc.stockmoneyflowinfo
+    </select>
+   
+    <!-- 查询记录 --> 
+    <select id="queryList" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+        SELECT * FROM pc.stockmoneyflowinfo 
+    	<where>
+	        <if test="fdateq != null and fdateq !=''.toString()">
+	         	AND fDate >= #{fdateq} 
+	        </if>
+	        <if test="fdatez != null and fdatez !=''.toString()">
+	         	<![CDATA[ AND fDate <= #{fdatez} ]]> 
+	        </if>
+	        <if test="fCode != null and fCode !=''.toString()">
+	         	AND fCode = #{fCode} 
+	        </if>
+	        <if test="fName != null and fName !=''.toString()">
+	         	AND fName = #{fName} 
+	        </if>
+        </where>
+        ORDER BY fDate DESC
+        <if test="firstResult!=null and maxResult!=null">
+            limit #{firstResult},#{maxResult}
+        </if>
+    </select>
+    
+    <!-- 删除 -->  
+	<delete id="delete" parameterType="java.util.Map">  
+	        DELETE FROM pc.stockmoneyflowinfo WHERE md5 = #{md5}  
+	</delete>
+    
+</mapper>

@@ -44,44 +44,25 @@
         <a href="#" class="easyui-linkbutton" iconCls="icon-cut" plain="true">剪切</a>
     </div>
     <div>
-        Date From: <input class="easyui-datebox" style="width:100px">
-        To: <input class="easyui-datebox" style="width:100px">
-        Language:
-        <select class="easyui-combobox" panelHeight="auto" style="width:100px">
-            <option value="java">Java</option>
-            <option value="c">C</option>
-            <option value="basic">Basic</option>
-            <option value="perl">Perl</option>
-            <option value="python">Python</option>
+    	<span style="font-size:12px;">日期起:</span>
+        <input id="stock_view_list_fdate_q" class="easyui-datebox" style="width:100px">
+        <span style="font-size:12px;">到:</span>
+        <input id="stock_view_list_fdate_z" class="easyui-datebox" style="width:100px">
+        <span style="font-size:12px;">股票代码:</span>
+        <input id="stock_view_list_fcode" class="easyui-text" style="width:100px">
+        <span style="font-size:12px;">股票名称:</span>
+        <select id="stock_view_list_fname" class="easyui-combobox" panelHeight="auto" style="width:100px">
+            <option value="美亚柏科">美亚柏科</option>
+            <option value="索菲亚">索菲亚</option>
+            <option value="青农商行">青农商行</option>
+            <option value="中国软件">中国软件</option>
+            <option value="五粮液">五粮液</option>
         </select>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-search">查询</a>
+        <a id="stock_view_list_search" class="easyui-linkbutton" iconCls="icon-search">查询</a>
+        <a id="stock_view_list_reset" class="easyui-linkbutton" iconCls="icon-reset">重置</a>
     </div>
 </div>
 </div>
-<!-- <div style="margin:10px 0;"></div> -->
-
-
-<div style="height: 100%;">
-	<!-- <table id="dg" title="历史资金" style="width:100%;height:70%" data-options="
-				rownumbers:true,
-				singleSelect:true,
-				autoRowHeight:false,
-				pagination:true,
-				pageSize:10"> -->
-    <!-- <thead>
-    <tr>
-        <th field="inv" width="80">Inv No</th>
-        <th field="date" width="100">Date</th>
-        <th field="name" width="80">Name</th>
-        <th field="amount" width="80" align="right">Amount</th>
-        <th field="price" width="80" align="right">Price</th>
-        <th field="cost" width="100" align="right">Cost</th>
-        <th field="note" width="110">Note</th>
-    </tr>
-    </thead>
-</table> -->
-</div>
-
 
 <%--=============== 页面脚本 ===============--%>
 <script src="<s:url value="/views/crawler/stockView/list.js" />" type="text/javascript"></script>	

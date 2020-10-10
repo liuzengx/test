@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ts.module.crawler.dao.CrawlerUrlTaskDao">
+	<!-- 查询记录数 --> 
+    <select id="queryListCount" resultType="Int">
+        SELECT count(*) FROM pc.crawlerurltask
+    </select>
+   
+    <!-- 查询记录 --> 
+    <select id="queryList" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+        SELECT
+			id,url,
+			isSubPage,
+			isCookie,
+			isVeryfyCode,
+			isTimed,
+			state,
+			priority,
+			isget,
+			md5,
+			pageNum,
+			DATE_FORMAT(
+				addTime,
+				'%Y-%m-%d %H:%i:%s'
+			) addTime,
+			DATE_FORMAT(
+				updateTime,
+				'%Y-%m-%d %H:%i:%s'
+			) updateTime,
+			jsoupXML,
+			espacial,
+			isStart,
+			sleepTime,
+			intervalTime,
+			DATE_FORMAT(
+				executeTime,
+				'%Y-%m-%d %H:%i:%s'
+			) executeTime,
+			type,
+			totalPage,
+			myCookie,
+			requestType,
+			pid,
+			tname
+		FROM
+			pc.crawlerurltask
+    	<where>
+	        <if test="fdateq != null and fdateq !=''.toString()">
+	         	AND addTime >= #{fdateq} 
+	        </if>
+	        <if test="fdatez != null and fdatez !=''.toString()">
+	         	<![CDATA[ AND addTime <= #{fdatez} ]]> 
+	        </if>
+	        <if test="isTimed != null and isTimed !=''.toString()">
+	         	AND isTimed = #{isTimed} 
+	        </if>
+	        <if test="state != null and state !=''.toString()">
+	         	AND state = #{state} 
+	        </if>
+	        <if test="jsoupXML != null and jsoupXML !=''.toString()">
+	         	AND jsoupXML = #{jsoupXML} 
+	        </if>
+        </where>
+        ORDER BY addTime DESC
+        <if test="firstResult!=null and maxResult!=null">
+            limit #{firstResult},#{maxResult}
+        </if>
+    </select>
+    
+    <!-- 删除 -->  
+	<delete id="delete" parameterType="java.util.Map">  
+	        DELETE FROM pc.crawlerurltask WHERE md5 = #{md5}  
+	</delete>
+    
+</mapper>
