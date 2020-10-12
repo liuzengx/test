@@ -118,238 +118,194 @@
 	</tr>
 	
 	<tr>
-		<td colspan="4"><div align="left" class="Label">法定代表人信息</div></td>
-	</tr>
-	<tr>
-		<td class="blueLabel">法定代表人姓名：</td>
-		<td><span class="mySpan">${hm["FDDBRXM"]}</span></td>
-		<td class="blueLabel">身份证件种类：</td>
-		<td><span class="mySpan">${hm["FRSFZJLXMC"]}</span></td>
-	</tr>
-	<tr>
-		<td class="blueLabel">身份证号码：</td>
-		<td><span class="mySpan">${hm["FDDBRSFZJHM"]}</span></td>
-		<td class="blueLabel">固定电话：</td>
-		<td><span class="mySpan">${hm["FDDBRGDDH"]}</span></td>
-	</tr>
-	<tr>
-		<td class="blueLabel">移动电话：</td>
-		<td><span class="mySpan">${hm["FDDBRYDDH"]}</span></td>
-		<td class="blueLabel">电子邮箱：</td>
-		<td><span class="mySpan">${hm["FDDBRDZXX"]}</span></td>
-	</tr>
-	
-	<tr>
-		<td colspan="4"><div align="left" class="Label">财务负责人信息</div></td>
-	</tr>
-	<tr>
-		<td class="blueLabel">财务负责人姓名：</td>
-		<td><span class="mySpan">${hm["CWFZRXM"]}</span></td>
-		<td class="blueLabel">身份证件种类：</td>
-		<td><span class="mySpan">${hm["CRSFZJLXMC"]}</span></td>
-	</tr>
-	<tr>
-		<td class="blueLabel">身份证号码：</td>
-		<td><span class="mySpan">${hm["CWFZRSFZJHM"]}</span></td>
-		<td class="blueLabel">固定电话：</td>
-		<td><span class="mySpan">${hm["CWFZRGDDH"]}</span></td>
-	</tr>
-	<tr>
-		<td class="blueLabel">移动电话：</td>
-		<td><span class="mySpan">${hm["CWFZRYDDH"]}</span></td>
-		<td class="blueLabel">电子邮箱：</td>
-		<td><span class="mySpan">${hm["CWFZRDZXX"]}</span></td>
-	</tr>
-	
-	<tr>
 		<td colspan="4"><div align="left" class="Label">统计分析</div></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">总交易日数量：</td>
-		<td><span class="mySpan">${hm["BSRXM"]}</span></td>
+		<td><span class="mySpan">${hm["jyrCount"]}</span></td>
 		<td class="blueLabel">日期区间：</td>
-		<td><span class="mySpan">2020.8.14 - 2020.9.27</span></td>
+		<td><span class="mySpan">${hm["dateQj"]}</span></td>
 	</tr>
 	<tr>
-		<td class="blueLabel">昨收低于今开(正收益)：</td>
-		<td><span class="mySpan">${hm["BSRXM"]}</span></td>
+		<td class="blueLabel">今开(>)昨收(正收益)：</td>
+		<td><span class="mySpan">${hm["zsyCount"]}</span></td>
 		<td class="blueLabel">收益率：</td>
-		<td><span class="mySpan">${hm["BSRSFZJLXMC"]}</span></td>
+		<td><span class="mySpan">${hm["zsyScale"]}</span></td>
 	</tr>
 	<tr>
-		<td class="blueLabel">昨收>今开(负收益)：</td>
-		<td><span class="mySpan">${hm["BSRXM"]}</span></td>
+		<td class="blueLabel">今开(<)昨收(负收益)：</td>
+		<td><span class="mySpan">${hm["fsyCount"]}</span></td>
 		<td class="blueLabel">亏损率：</td>
-		<td><span class="mySpan">${hm["BSRSFZJLXMC"]}</span></td>
+		<td><span class="mySpan">${hm["fsyScale"]}</span></td>
 	</tr>
 	<tr>
-		<td class="blueLabel">昨收=今开(无收益)：</td>
-		<td><span class="mySpan">${hm["BSRSFZJHM"]}</span></td>
+		<td class="blueLabel">今开(=)昨收(无收益)：</td>
+		<td><span class="mySpan">${hm["wsyCount"]}</span></td>
 		<td class="blueLabel">比例：</td>
-		<td><span class="mySpan">0.0%</span></td>
+		<td><span class="mySpan">${hm["wsyScale"]}</span></td>
 	</tr>
 	<tr>
-		<td colspan="4"><div align="left" class="Label">今最高-今开盘在(2020.8.14 - 2020.9.27)区间最佳时机分析</div></td>
+		<td colspan="4"><div align="left" class="Label">收盘分析</div></td>
+	</tr>
+	<tr>
+		<td class="blueLabel">总交易日数量：</td>
+		<td><span class="mySpan">${hm["jyrCount"]}</span></td>
+		<td class="blueLabel">日期区间：</td>
+		<td><span class="mySpan">${hm["dateQj"]}</span></td>
+	</tr>
+	<tr>
+		<td class="blueLabel">今收盘>今最低：</td>
+		<td><span class="mySpan">${hm["spjDyZdjCount"]}</span></td>
+		<td class="blueLabel">占比：</td>
+		<td><span class="mySpan">${hm["spjDyZdjScale"]}</span></td>
+	</tr>
+	<tr>
+		<td class="blueLabel">今收盘=今最低：</td>
+		<td><span class="mySpan">${hm["spjDdyZdjCount"]}</span></td>
+		<td class="blueLabel">占比：</td>
+		<td><span class="mySpan">${hm["spjDdyZdjScale"]}</span></td>
+	</tr>
+	<tr>
+		<td colspan="4"><div align="left" class="Label">今最高-今开盘在(<span>${hm["dateQj"]}</span>)区间最佳时机分析</div></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.00<=(今高-今开))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_00Count"]}</span></td>
 		<td class="blueLabel">占比：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_00CountScale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.05<=(今高-今开))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_05Count"]}</span></td>
 		<td class="blueLabel">占比：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_05CountScale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.10<=(今高-今开))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_10Count"]}</span></td>
 		<td class="blueLabel">占比：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_10CountScale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.15<=(今高-今开))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_15Count"]}</span></td>
 		<td class="blueLabel">占比：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_15CountScale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.20<=(今高-今开))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_20Count"]}</span></td>
 		<td class="blueLabel">占比：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_20CountScale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.25<=(今高-今开))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_25Count"]}</span></td>
 		<td class="blueLabel">占比：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_25CountScale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.30<=(今高-今开))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_30Count"]}</span></td>
 		<td class="blueLabel">占比：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_30CountScale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.35<=(今高-今开))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_35Count"]}</span></td>
 		<td class="blueLabel">占比：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_35CountScale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.40<=(今高-今开))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_40Count"]}</span></td>
 		<td class="blueLabel">占比：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_40CountScale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.45<=(今高-今开))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_45Count"]}</span></td>
 		<td class="blueLabel">占比：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_45CountScale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.50<=(今高-今开))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_50Count"]}</span></td>
 		<td class="blueLabel">占比：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["zgj_Kpj_0_50CountScale"]}</span></td>
 	</tr>
 	<tr>
-		<td colspan="4"><div align="left" class="Label">今开盘-今最低在(2020.8.14 - 2020.9.27)区间最佳时机分析</div></td>
+		<td colspan="4"><div align="left" class="Label">今开盘-今最低在(<span>${hm["dateQj"]}</span>)区间最佳时机分析</div></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.00=(今开-今低))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_00Count"]}</span></td>
 		<td class="blueLabel">占比率：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
-	</tr>
-	<tr>
-		<td class="blueLabel">(0.01<=(今开-今低))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
-		<td class="blueLabel">占比率：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_00Scale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.05<=(今开-今低))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_05Count"]}</span></td>
 		<td class="blueLabel">占比率：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_05Scale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.10<=(今开-今低))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_10Count"]}</span></td>
 		<td class="blueLabel">占比率：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_10Scale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.15<=(今开-今低))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_15Count"]}</span></td>
 		<td class="blueLabel">占比率：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_15Scale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.20<=(今开-今低))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_20Count"]}</span></td>
 		<td class="blueLabel">占比率：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_20Scale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.25<=(今开-今低))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_25Count"]}</span></td>
 		<td class="blueLabel">占比率：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_25Scale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.30<=(今开-今低))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_30Count"]}</span></td>
 		<td class="blueLabel">占比率：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_30Scale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.35<=(今开-今低))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_35Count"]}</span></td>
 		<td class="blueLabel">占比率：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_35Scale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.40<=(今开-今低))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_40Count"]}</span></td>
 		<td class="blueLabel">占比率：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_40Scale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.45<=(今开-今低))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_45Count"]}</span></td>
 		<td class="blueLabel">占比率：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_45Scale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">(0.50<=(今开-今低))：</td>
-		<td><span class="mySpan">${hm["BSRYDDH"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_50Count"]}</span></td>
 		<td class="blueLabel">占比率：</td>
-		<td><span class="mySpan">${hm["BSRDZXX"]}</span></td>
+		<td><span class="mySpan">${hm["kpj_Zdj_0_50Scale"]}</span></td>
 	</tr>
 	
 	<tr>
-		<td colspan="4"><div align="left" class="Label">税务代理人信息</div></td>
-	</tr>
-	<tr>
-		<td class="blueLabel">纳税人识别号：</td>
-		<td><span class="mySpan">${hm["SWDLRNSRSBH"]}</span></td>
-		<td class="blueLabel">税务代理人姓名：</td>
-		<td><span class="mySpan">${hm["SWDLRMC"]}</span></td>
-	</tr>
-	<tr>
-		<td class="blueLabel">联系电话：</td>
-		<td><span class="mySpan">${hm["SWDLRLXDH"]}</span></td>
-		<td class="blueLabel">电子邮箱：</td>
-		<td><span class="mySpan">${hm["SWDLRDZXX"]}</span></td>
-	</tr>
-	<tr>
-		<td colspan="4"><div align="left" class="Label">税务处理决定书信息</div></td>
+		<td colspan="4"><div align="left" class="Label">决定书信息</div></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">检查日期起：</td>
@@ -368,45 +324,8 @@
 		<td colspan="3" ><textarea readonly="readonly" style="background: #FFFADB;height:100%;width:100%" rows="12" cols="100">${hm["CLJCFWHNR"]}</textarea></td>
 	</tr>
 	<tr style="height: 150px">
-		<td class="blueLabel">违法事实：</td>
-		<td colspan="3" ><textarea readonly="readonly" style="background: #FFFADB;height:100%;width:100%" rows="12" cols="100">${hm["CLWFSS"]}</textarea></td>
-	</tr>
-	<tr style="height: 150px">
-		<td class="blueLabel">处理决定：</td>
-		<td colspan="3" ><textarea readonly="readonly" style="background: #FFFADB;height:100%;width:100%" rows="12" cols="100">${hm["CLCLJDJYJ"]}</textarea></td>
-	</tr>
-	<tr>
-		<td colspan="4"><div align="left" class="Label">税务行政处罚决定书</div></td>
-	</tr>
-	<tr>
-		<td class="blueLabel">检查所属期间起：</td>
-		<td><span class="mySpan">${hm["JCSSQJQ"]}</span></td>
-		<td class="blueLabel">检查所属期间止：</td>
-		<td><span class="mySpan">${hm["JCSSQJZ"]}</span></td>
-	</tr>
-	<tr style="height: 150px">
 		<td class="blueLabel">检查范围和内容：</td>
-		<td colspan="3" ><textarea readonly="readonly" style="background: #FFFADB;height:100%;width:100%" rows="12" cols="100">${hm["JCFWHNR"]}</textarea></td>
-	</tr>
-	<tr style="height: 150px">
-		<td class="blueLabel">违法事实：</td>
-		<td colspan="3"><textarea readonly="readonly" style="background: #FFFADB;height:100%;width:100%" rows="12" cols="100">${hm["WFSS"]}</textarea></td>
-	</tr>
-	<tr style="height: 150px">
-		<td class="blueLabel">违法手段：</td>
-		<td colspan="3"><textarea readonly="readonly" rows="12" cols="100" style="height:100%;width:100%">${hm["WFSD"]}</textarea></td>
-	</tr>
-	<tr style="height: 150px">
-		<td class="blueLabel">税务行政处罚依据：</td>
-		<td colspan="3"><textarea readonly="readonly" rows="12" cols="100" style="height:100%;width:100%">${hm["SWXZCFYJ"]}</textarea></td>
-	</tr>
-	<tr style="height: 150px">
-		<td class="blueLabel">处罚决定：</td>
-		<td colspan="3"><textarea readonly="readonly" style="background: #FFFADB;height:100%;width:100%" rows="12" cols="100">${hm["CFJD"]}</textarea></td>
-	</tr>
-	<tr>
-		<td class="blueLabel">应缴罚款金额：</td>
-		<td colspan="3"><span class="mySpan">${hm["YJFKJE"]}元</span></td>
+		<td colspan="3" ><textarea readonly="readonly" style="height:100%;width:100%" rows="12" cols="100">${hm["CLJCFWHNR"]}</textarea></td>
 	</tr>
 	</tbody>
 </table>

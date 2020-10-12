@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ts.module.crawler.dao.StockAnalysisReportDao">
+	<!-- 查询总交易日数量数 --> 
+    <select id="queryJyrCount" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) JyrCount FROM pc.stockdaypriceinfo sd
+        <where>
+	        <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	        </if>
+        </where>
+    </select>
+    <!-- 查询日期区间 --> 
+    <select id="queryDateQj" resultType="String" parameterType="java.util.HashMap">
+        SELECT CONCAT(MIN(sd.fdate),'至',Max(sd.fdate)) AS rqqj FROM pc.stockdaypriceinfo sd
+        <where>
+	        <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	        </if>
+        </where>
+    </select>
+    <!-- 查询正收益数量 --> 
+    <select id="queryZsyCount" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) ZsyCount FROM pc.stockdaypriceinfo sd
+        <where>
+	        <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.kpj - sd.zspj > 0
+	        </if>
+        </where>
+    </select>
+    <!-- 查询负收益数量 --> 
+    <select id="queryFsyCount" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) FsyCount FROM pc.stockdaypriceinfo sd
+        <where>
+	        <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	<![CDATA[ AND sd.kpj - sd.zspj < 0 ]]>
+	        </if>
+        </where>
+    </select>
+    <!-- 查询无收益数量 --> 
+    <select id="queryWsyCount" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) WsyCount FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.kpj - sd.zspj = 0
+	        </if>
+        </where>
+    </select>
+    <!-- 查询今收盘>今最低数量 --> 
+    <select id="querySpjDyZdjCount" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) SpjDyZdjCount FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.spj - sd.zdj > 0
+	        </if>
+        </where>
+    </select>
+    <!-- 查询今收盘=今最低数量 --> 
+    <select id="querySpjDdyZdjCount" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) SpjDdyZdjCount FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.spj - sd.zdj = 0
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.00<=(今高-今开))数量 --> 
+    <select id="queryZgj_Kpj_0_00Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryZgj_Kpj_0_00Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.zgj - sd.kpj >= 0
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.05<=(今高-今开))数量 --> 
+    <select id="queryZgj_Kpj_0_05Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryZgj_Kpj_0_05Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.zgj - sd.kpj >= 0.05
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.10<=(今高-今开))数量 --> 
+    <select id="queryZgj_Kpj_0_10Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryZgj_Kpj_0_10Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.zgj - sd.kpj >= 0.10
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.15<=(今高-今开))数量 --> 
+    <select id="queryZgj_Kpj_0_15Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryZgj_Kpj_0_15Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.zgj - sd.kpj >= 0.15
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.20<=(今高-今开))数量 --> 
+    <select id="queryZgj_Kpj_0_20Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryZgj_Kpj_0_20Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.zgj - sd.kpj >= 0.20
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.25<=(今高-今开))数量 --> 
+    <select id="queryZgj_Kpj_0_25Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryZgj_Kpj_0_25Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.zgj - sd.kpj >= 0.25
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.30<=(今高-今开))数量 --> 
+    <select id="queryZgj_Kpj_0_30Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryZgj_Kpj_0_30Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.zgj - sd.kpj >= 0.30
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.35<=(今高-今开))数量 --> 
+    <select id="queryZgj_Kpj_0_35Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryZgj_Kpj_0_35Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.zgj - sd.kpj >= 0.35
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.40<=(今高-今开))数量 --> 
+    <select id="queryZgj_Kpj_0_40Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryZgj_Kpj_0_40Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.zgj - sd.kpj >= 0.40
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.45<=(今高-今开))数量 --> 
+    <select id="queryZgj_Kpj_0_45Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryZgj_Kpj_0_45Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.zgj - sd.kpj >= 0.45
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.50<=(今高-今开))数量 --> 
+    <select id="queryZgj_Kpj_0_50Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryZgj_Kpj_0_50Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.zgj - sd.kpj >= 0.50
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.00=(今开-今低))数量 --> 
+    <select id="queryKpj_Zdj_0_00Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryKpj_Zdj_0_00Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.kpj - sd.zdj = 0
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.05=<(今开-今低))数量 --> 
+    <select id="queryKpj_Zdj_0_05Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryKpj_Zdj_0_05Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.kpj - sd.zdj >= 0.05
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.10=<(今开-今低))数量 --> 
+    <select id="queryKpj_Zdj_0_10Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryKpj_Zdj_0_10Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.kpj - sd.zdj >= 0.10
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.15=<(今开-今低))数量 --> 
+    <select id="queryKpj_Zdj_0_15Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryKpj_Zdj_0_15Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.kpj - sd.zdj >= 0.15
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.20=<(今开-今低))数量 --> 
+    <select id="queryKpj_Zdj_0_20Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryKpj_Zdj_0_20Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.kpj - sd.zdj >= 0.20
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.25=<(今开-今低))数量 --> 
+    <select id="queryKpj_Zdj_0_25Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryKpj_Zdj_0_25Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.kpj - sd.zdj >= 0.25
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.30=<(今开-今低))数量 --> 
+    <select id="queryKpj_Zdj_0_30Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryKpj_Zdj_0_30Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.kpj - sd.zdj >= 0.30
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.35=<(今开-今低))数量 --> 
+    <select id="queryKpj_Zdj_0_35Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryKpj_Zdj_0_35Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.kpj - sd.zdj >= 0.35
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.40=<(今开-今低))数量 --> 
+    <select id="queryKpj_Zdj_0_40Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryKpj_Zdj_0_40Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.kpj - sd.zdj >= 0.40
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.45=<(今开-今低))数量 --> 
+    <select id="queryKpj_Zdj_0_45Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryKpj_Zdj_0_45Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.kpj - sd.zdj >= 0.45
+	        </if>
+        </where>
+    </select>
+    <!-- 查询(0.50=<(今开-今低))数量 --> 
+    <select id="queryKpj_Zdj_0_50Count" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) queryKpj_Zdj_0_50Count FROM pc.stockdaypriceinfo sd
+        <where>
+            <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	AND sd.kpj - sd.zdj >= 0.50
+	        </if>
+        </where>
+    </select>
+   
+</mapper>
