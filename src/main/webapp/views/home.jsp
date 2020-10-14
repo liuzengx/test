@@ -20,11 +20,12 @@
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script src="<s:url value="/vendors/jquery-easyui/jquery.easyui.min.js" />"></script>
 <script src="<s:url value="/vendors/jquery-easyui/local/easyui-lang-zh_CN.js" />"></script>
+<script src="<s:url value="/vendors/echarts/echarts-all.js" />"></script>
 
-<body style="height: 656px;background-color: #A6F8AC">
+<body style="height: 800px;background-color: #A6F8AC">
 	<div style="height:100%;width: 100%">
 		<div style="height:50%;">
-		  	<div style="float:left;background-color:#A6F9AC;height:100%;width:50%;">第一个DIV盒子</div> 
+		  	<div id="map" style="float:left;background-color:#A6F9AC;height:100%;width:50%;">第一个DIV盒子</div> 
 			<div style="float:left;background-color:#A6F5AC;height:100%;width:50%;">第二个DIV盒子</div>
 		</div>
 		<div style="background-color:green;height:50%;">

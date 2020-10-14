@@ -13,6 +13,9 @@ public interface STockAnalysisReportService {
 	
 	public int queryFsyCount(HashMap<String,Object> map);
 	
+	//负收益时候，亏转盈的数量
+	public int queryFsy_KzyCount(HashMap<String,Object> map);
+	
 	public int queryWsyCount(HashMap<String,Object> map);
 	
 	public int querySpjDyZdjCount(HashMap<String,Object> map);

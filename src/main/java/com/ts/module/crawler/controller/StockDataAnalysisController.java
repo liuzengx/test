@@ -11,10 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ts.module.crawler.service.STockAnalysisReportService;
 import com.ts.module.crawler.service.STockDataAnalysisService;
+import com.ts.module.crawler.service.STockDataYKAnalysisService;
 import com.ts.module.utils.DbUtils;
 
 /*股票信息类*/
@@ -24,6 +26,8 @@ public class StockDataAnalysisController {
 	private STockAnalysisReportService stockAnalysisReportService;
 	@Autowired
 	private STockDataAnalysisService stockDataAnalysisService;
+	@Autowired
+	private STockDataYKAnalysisService stockDataYKAnalysisService;
 
 	/*数据分析*/
 	@RequestMapping("/showStockDataAnalysisList.do")
@@ -31,6 +35,13 @@ public class StockDataAnalysisController {
 		// model.addAttribute("sessions", sessions);
 
 		return "crawler/stockDataAnalysis/list";
+	}
+	/*分析画像*/
+	@RequestMapping("/showStockDataYKAnalysisList.do")
+	public String showStockDataYKAnalysisList(HttpServletRequest request, HttpServletResponse response, Model model) {
+		// model.addAttribute("sessions", sessions);
+
+		return "crawler/stockDataYKAnalysis/list";
 	}
 	/*数据分析报告*/
 	@RequestMapping("/showStockAnalysisReportList.do")
@@ -61,6 +72,13 @@ public class StockDataAnalysisController {
 			df = new DecimalFormat("0.00");//格式化小数  
 			String fsyScale = df.format((float)f1*100)+"%";//返回的是String类型
 			hm.put("fsyScale", fsyScale);
+			//负收益时，亏转盈数量；
+			int fsyKzyCount = stockAnalysisReportService.queryFsy_KzyCount(map);
+			hm.put("fsyKzyCount", fsyKzyCount);
+			f1 = new BigDecimal((float)fsyKzyCount/fsyCount).setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
+			df = new DecimalFormat("0.00");//格式化小数  
+			String fsyKzyScale = df.format((float)f1*100)+"%";//返回的是String类型
+			hm.put("fsyKzyScale", fsyKzyScale);
 			int wsyCount = stockAnalysisReportService.queryWsyCount(map);
 			hm.put("wsyCount", wsyCount);
 			f1 = new BigDecimal((float)wsyCount/jyrCount).setScale(4, BigDecimal.ROUND_HALF_UP).doubleValue();
@@ -236,16 +254,10 @@ public class StockDataAnalysisController {
 			df = new DecimalFormat("0.00");//格式化小数  
 			String kpj_Zdj_0_50Scale = df.format((float)f1*100)+"%";//返回的是String类型
 			hm.put("kpj_Zdj_0_50Scale", kpj_Zdj_0_50Scale);
-			
-			
-			
-			
+				
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
-
-		
 		
         model.addAttribute("hm", hm);
 
@@ -289,6 +301,80 @@ public class StockDataAnalysisController {
 
 		return result;
 	}
+	/*获取数据分析画像List*/
+	@RequestMapping(value = "crawler/stockDataYKAnalysis/getList.do")
+	@ResponseBody
+	public HashMap<String, Object> queryStockDataYKAnalysisList(HttpServletRequest request, HttpServletResponse response) {
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		List<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		String fdateq = request.getParameter("fdateq");
+		String fdatez = request.getParameter("fdatez");
+		String fCode = request.getParameter("fcode");
+		String fName = request.getParameter("fname");
+
+		int page = Integer.parseInt(request.getParameter("page"));
+		int pageSize = Integer.parseInt(request.getParameter("rows"));
+		int total = 0;
+
+		try {
+			int maxResult = DbUtils.generatePaginationMaxResult(page, pageSize);
+			int firstResult = DbUtils.generatePaginationFirstResult(page, pageSize);
+			map.put("firstResult", firstResult);
+			map.put("maxResult", maxResult);
+			map.put("fdateq", fdateq);
+			map.put("fdatez", fdatez);
+			map.put("fCode", fCode);
+			map.put("fName", fName);
+			
+			list = stockDataYKAnalysisService.queryYKList(map);
+			total = stockDataYKAnalysisService.queryYKListCount();
+
+		} catch (Exception e) {
+			System.out.println("ttt::" + e);
+		}
+
+		result.put("rows", list);
+		result.put("total", total);
+
+		return result;
+	}
+	//数据分析画像收益对比折线图
+    @RequestMapping(value = "crawler/stockDataYKAnalysis/getLineData.do")
+    @ResponseBody
+    public HashMap<String, Object> groupTop10 (HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    @RequestParam(value = "arg1", required = true) int arg1,
+                                    @RequestParam(value = "arg2", required = true) int arg2,
+                                    @RequestParam(value = "clickOrgCode", required = true) String clickOrgCode,
+                                    @RequestParam(value = "phbType", required = true) int phbType
+                                    ) throws Exception {
+    	// 结果集合
+        HashMap<String, Object> result = new HashMap<String, Object>();
+    	 try{
+                  
+                  List<String> dataName =new ArrayList<String>();
+                  List<String> dataDate =new ArrayList<String>();//日期
+                  List<Double> data1 =new ArrayList<Double>();//
+                  List<Double> data2 =new ArrayList<Double>();//
+                  
+                  dataName.add("邮件营销");
+                  dataDate.add("2020-10-12");
+                  data1.add(120.00);
+                  
+                    result.put("dataName", dataName);
+                    result.put("dataDate", dataDate);
+                    result.put("data1", data1);
+                    result.put("data2", data2);
+                  return result;
+              } catch (Exception ex) {
+              	System.out.println(ex);
+              }finally {
+      			
+      		}
+    	 return result;
+         }
+   
 	
 
 }

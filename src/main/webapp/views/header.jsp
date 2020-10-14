@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<script src="<s:url value="/vendors/echarts/echarts-all.js" />"></script>
 <body>
 	<header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">

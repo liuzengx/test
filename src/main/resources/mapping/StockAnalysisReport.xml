@@ -39,6 +39,17 @@
 	        </if>
         </where>
     </select>
+    <!-- 查询今开<昨收时，今高>昨收,亏转盈的数量 --> 
+    <select id="queryFsy_KzyCount" resultType="Int" parameterType="java.util.HashMap">
+        SELECT COUNT(*) Fsy_KzyCount FROM pc.stockdaypriceinfo sd
+        <where>
+	        <if test="fCode != null and fCode !=''.toString()">
+	         	AND sd.fCode = #{fCode} 
+	         	<![CDATA[ AND sd.kpj - sd.zspj < 0 ]]>
+	         	AND sd.zgj - sd.zspj > 0
+	        </if>
+        </where>
+    </select>
     <!-- 查询无收益数量 --> 
     <select id="queryWsyCount" resultType="Int" parameterType="java.util.HashMap">
         SELECT COUNT(*) WsyCount FROM pc.stockdaypriceinfo sd

@@ -34,6 +34,12 @@ public class StockAnalysisReportImpl implements STockAnalysisReportService{
 		// TODO Auto-generated method stub
 		return stockAnalysisReportDao.queryFsyCount(map);
 	}
+	
+	@Override
+	public int queryFsy_KzyCount(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return stockAnalysisReportDao.queryFsy_KzyCount(map);
+	}
 
 	@Override
 	public int queryWsyCount(HashMap<String, Object> map) {

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ts.module.crawler.dao.StockDataYKAnalysisDao">
+	<!-- 查询记录数 --> 
+    <select id="queryYKListCount" resultType="Int">
+        SELECT count(*) FROM pc.stockdaypriceinfo
+    </select>
+   
+    <!-- 查询记录 --> 
+    <select id="queryYKList" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+        SELECT
+			s.fcode,
+			s.fname,
+			s.fdate,
+			s.zspj,
+			s.kpj,
+			s.spj,
+			sm.zdf,
+			FORMAT((s.kpj - s.zspj), 2) kpzspcj,
+			s.zdj,
+			s.zgj,
+			FORMAT((s.kpj - s.zspj), 2) zgzjcj,
+			FORMAT((s.kpj - s.zspj) * 1000, 2) yqgztsy,
+			FORMAT((s.kpj - s.zspj) * 5000, 2) wqgztsy,
+			sm.fdate zjrq,
+			sm.zljlrje
+		FROM
+			pc.stockdaypriceinfo s
+		LEFT JOIN pc.stockmoneyflowinfo sm ON s.fcode = sm.fcode
+		AND s.fdate = sm.fdate 
+    	<where>
+	        <if test="fdateq != null and fdateq !=''.toString()">
+	         	AND s.fDate >= #{fdateq} 
+	        </if>
+	        <if test="fdatez != null and fdatez !=''.toString()">
+	         	<![CDATA[ AND s.fDate <= #{fdatez} ]]> 
+	        </if>
+	        <if test="fCode != null and fCode !=''.toString()">
+	         	AND s.fCode = #{fCode} 
+	        </if>
+	        <if test="fName != null and fName !=''.toString()">
+	         	AND s.fName = #{fName} 
+	        </if>
+        </where>
+        ORDER BY s.fdate DESC
+        <if test="firstResult!=null and maxResult!=null">
+            limit #{firstResult},#{maxResult}
+        </if>
+    </select>
+    
+</mapper>

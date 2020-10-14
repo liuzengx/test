@@ -20,7 +20,7 @@
 		background: none repeat scroll 0 0 #EEF5FB;
 		text-align: right;
 		height: 20px;
-		width:15%
+		width:19%
 	}
 
 </style>
@@ -32,7 +32,7 @@
 	</tr>
 	<tr>
 		<td class="blueLabel">纳税人识别号：</td>
-		<td><span class="mySpan">${hm["fcode"]}</span></td>
+		<td><span class="mySpan">1234567890</span></td>
 		<td  class="blueLabel">纳税人名称：</td>
 		<td><span class="mySpan">${hm['fname']}</span></td>
 	</tr>
@@ -137,6 +137,12 @@
 		<td><span class="mySpan">${hm["fsyCount"]}</span></td>
 		<td class="blueLabel">亏损率：</td>
 		<td><span class="mySpan">${hm["fsyScale"]}</span></td>
+	</tr>
+	<tr>
+		<td class="blueLabel">今开(<)昨收(负收益)时,今高>昨收：</td>
+		<td><span class="mySpan">${hm["fsyKzyCount"]}</span></td>
+		<td class="blueLabel">亏转盈率((<span>${hm["fsyKzyCount"]}</span>/<span>${hm["fsyCount"]}</span>)*100%)：</td>
+		<td><span class="mySpan">${hm["fsyKzyScale"]}</span></td>
 	</tr>
 	<tr>
 		<td class="blueLabel">今开(=)昨收(无收益)：</td>
