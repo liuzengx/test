@@ -20,14 +20,19 @@
 			s.zdj,
 			s.zgj,
 			FORMAT((s.kpj - s.zspj), 2) zgzjcj,
-			FORMAT((s.kpj - s.zspj) * 1000, 2) yqgztsy,
-			FORMAT((s.kpj - s.zspj) * 5000, 2) wqgztsy,
+			FORMAT((s.kpj - s.zspj) * 100, 2) ybgztsy,
+			FORMAT((s.kpj - s.zspj) * 500, 2) wbgztsy,
+			FORMAT((s.kpj - s.zspj) * 1000, 2) 1qgztsy,
+			FORMAT((s.kpj - s.zspj) * 2000, 2) 2qgztsy,
+			FORMAT((s.kpj - s.zspj) * 3000, 2) 3qgztsy,
+			FORMAT((s.kpj - s.zspj) * 4000, 2) 4qgztsy,
+			FORMAT((s.kpj - s.zspj) * 5000, 2) 5qgztsy,
 			sm.fdate zjrq,
 			sm.zljlrje
 		FROM
 			pc.stockdaypriceinfo s
 		LEFT JOIN pc.stockmoneyflowinfo sm ON s.fcode = sm.fcode
-		AND s.fdate = sm.fdate 
+		AND s.fdate = sm.fdate
     	<where>
 	        <if test="fdateq != null and fdateq !=''.toString()">
 	         	AND s.fDate >= #{fdateq} 

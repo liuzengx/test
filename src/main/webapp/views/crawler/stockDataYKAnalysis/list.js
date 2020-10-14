@@ -78,9 +78,10 @@ $(function(){
 			          {field:'zgj',title:'最高价',width:80,align:'center',halign:'center'},
 			          
 			          {field:'zgzjcj',title:'最高最低差价',width:80,align:'right',halign:'center'},
-			          {field:'yqgztsy',title:'1千股做T收益',width:100,align:'right',halign:'center'},
-			          
-			          {field:'wqgztsy',title:'5千股做T收益',width:100,align:'right',halign:'center'},
+			          {field:'ybgztsy',title:'1百股做T收益',width:100,align:'right',halign:'center'},
+			          {field:'1qgztsy',title:'1千股做T收益',width:100,align:'right',halign:'center'},
+			          {field:'3qgztsy',title:'3千股做T收益',width:100,align:'right',halign:'center'},
+			          {field:'5qgztsy',title:'5千股做T收益',width:100,align:'right',halign:'center'},
 			          {field:'zjrq',title:'资金日期',width:100,align:'center',halign:'center'},
 			          
 			          {field:'zljlrje',title:'主力资金净流入',width:100,align:'center',halign:'center',

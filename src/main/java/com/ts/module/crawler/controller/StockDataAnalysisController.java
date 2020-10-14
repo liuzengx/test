@@ -346,26 +346,70 @@ public class StockDataAnalysisController {
                                     HttpServletResponse response,
                                     @RequestParam(value = "arg1", required = true) int arg1,
                                     @RequestParam(value = "arg2", required = true) int arg2,
-                                    @RequestParam(value = "clickOrgCode", required = true) String clickOrgCode,
-                                    @RequestParam(value = "phbType", required = true) int phbType
+                                    @RequestParam(value = "fCode", required = true) String fCode,
+                                    @RequestParam(value = "fName", required = true) String fName
                                     ) throws Exception {
     	// 结果集合
         HashMap<String, Object> result = new HashMap<String, Object>();
+        HashMap<String, Object> map = new HashMap<String, Object>();
     	 try{
-                  
+    		 	//查询参数
+    		 map.put("fCode", fCode);
+    		 map.put("fName", fName);
+    		 
                   List<String> dataName =new ArrayList<String>();
                   List<String> dataDate =new ArrayList<String>();//日期
                   List<Double> data1 =new ArrayList<Double>();//
                   List<Double> data2 =new ArrayList<Double>();//
+                  List<Double> data3 =new ArrayList<Double>();//
+                  List<Double> data4 =new ArrayList<Double>();//
+                  List<Double> data5 =new ArrayList<Double>();//
+                  List<Double> data6 =new ArrayList<Double>();//
+                  
+                  List<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+                  list = stockDataYKAnalysisService.queryYKList(map);
+                  
+                  HashMap<String, Object> item=null;
+                  String name="";
+                  double value = 0.0D;
+                  double temp=0.0D;
+                  double temp2=0.0D;
+                  double temp3=0.0D;
+                  double temp4=0.0D;
+                  double temp5=0.0D;
+                  double temp6=0.0D;
+                  for (int i = 0; i < list.size(); i ++) {
+                      item = list.get(i);
+                      name = item.get("fdate").toString();
+                      //temp = item.get("1qgztsy");
+                      temp = Double.parseDouble(item.get("wbgztsy").toString().replace(",", ""));
+                      temp2 = Double.parseDouble(item.get("1qgztsy").toString().replace(",", ""));
+                      temp3 = Double.parseDouble(item.get("2qgztsy").toString().replace(",", ""));
+                      temp4 = Double.parseDouble(item.get("3qgztsy").toString().replace(",", ""));
+                      temp5 = Double.parseDouble(item.get("4qgztsy").toString().replace(",", ""));
+                      temp6 = Double.parseDouble(item.get("5qgztsy").toString().replace(",", ""));
+                      //value = new BigDecimal(temp / 10000).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+                      	dataDate.add(name);
+                        data1.add(temp);
+                        data2.add(temp2);
+                        data3.add(temp3);
+                        data4.add(temp4);
+                        data5.add(temp5);
+                        data6.add(temp6);
+                      }
                   
                   dataName.add("邮件营销");
-                  dataDate.add("2020-10-12");
-                  data1.add(120.00);
+                  //dataDate.add("2020-10-12");
+                  //data1.add(120.00);
                   
                     result.put("dataName", dataName);
                     result.put("dataDate", dataDate);
                     result.put("data1", data1);
                     result.put("data2", data2);
+                    result.put("data3", data3);
+                    result.put("data4", data4);
+                    result.put("data5", data5);
+                    result.put("data6", data6);
                   return result;
               } catch (Exception ex) {
               	System.out.println(ex);

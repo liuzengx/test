@@ -62,7 +62,7 @@
             <option value="索菲亚">索菲亚</option>
             <option value="青农商行">青农商行</option>
             <option value="中国软件">中国软件</option>
-            <option value="五粮液">五粮液</option>
+            <option value="五 粮 液">五粮液</option>
         </select>
         <a id="stock_view_list_search" class="easyui-linkbutton" iconCls="icon-search">查询</a>
         <a id="stock_view_list_reset" class="easyui-linkbutton" iconCls="icon-reset">重置</a>
