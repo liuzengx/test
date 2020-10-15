@@ -326,6 +326,7 @@ public class StockDataAnalysisController {
 			map.put("fdatez", fdatez);
 			map.put("fCode", fCode);
 			map.put("fName", fName);
+			map.put("order", 1);
 			
 			list = stockDataYKAnalysisService.queryYKList(map);
 			total = stockDataYKAnalysisService.queryYKListCount();
@@ -339,6 +340,65 @@ public class StockDataAnalysisController {
 
 		return result;
 	}
+	//数据分析画像收益对比柱形图
+    @RequestMapping(value = "crawler/stockDataYKAnalysis/getBarData.do")
+    @ResponseBody
+    public HashMap<String, Object> BarData (HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    @RequestParam(value = "arg1", required = true) int arg1,
+                                    @RequestParam(value = "arg2", required = true) int arg2,
+                                    @RequestParam(value = "fCode", required = true) String fCode,
+                                    @RequestParam(value = "fName", required = true) String fName
+                                    ) throws Exception {
+    	// 结果集合
+        HashMap<String, Object> result = new HashMap<String, Object>();
+        HashMap<String, Object> map = new HashMap<String, Object>();
+    	 try{
+    		 	//查询参数
+    		 map.put("fCode", fCode);
+    		 map.put("fName", fName);
+    		 
+                  List<Double> data1 =new ArrayList<Double>();//
+                  
+                  List<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+                  list = stockDataYKAnalysisService.queryZXList(map);
+                  
+                  HashMap<String, Object> item=null;
+                  double temp=0.0D;
+                  double temp1=0.0D;
+                  double temp2=0.0D;
+                  double temp3=0.0D;
+                  double temp4=0.0D;
+                  double temp5=0.0D;
+                  double temp6=0.0D;
+                  for (int i = 0; i < list.size(); i ++) {
+                      item = list.get(i);
+                      temp = Double.parseDouble(item.get("ybgztsy").toString().replace(",", ""));
+                      temp1 = Double.parseDouble(item.get("wbgztsy").toString().replace(",", ""));
+                      temp2 = Double.parseDouble(item.get("1qgztsy").toString().replace(",", ""));
+                      temp3 = Double.parseDouble(item.get("2qgztsy").toString().replace(",", ""));
+                      temp4 = Double.parseDouble(item.get("3qgztsy").toString().replace(",", ""));
+                      temp5 = Double.parseDouble(item.get("4qgztsy").toString().replace(",", ""));
+                      temp6 = Double.parseDouble(item.get("5qgztsy").toString().replace(",", ""));
+                      
+                        data1.add(temp);
+                        data1.add(temp1);
+                        data1.add(temp2);
+                        data1.add(temp3);
+                        data1.add(temp4);
+                        data1.add(temp5);
+                        data1.add(temp6);
+                      }
+                  
+                    result.put("data1", data1);
+                  return result;
+              } catch (Exception ex) {
+              	System.out.println(ex);
+              }finally {
+      			
+      		}
+    	 return result;
+         }
 	//数据分析画像收益对比折线图
     @RequestMapping(value = "crawler/stockDataYKAnalysis/getLineData.do")
     @ResponseBody
@@ -356,6 +416,7 @@ public class StockDataAnalysisController {
     		 	//查询参数
     		 map.put("fCode", fCode);
     		 map.put("fName", fName);
+    		 map.put("order", 2);
     		 
                   List<String> dataName =new ArrayList<String>();
                   List<String> dataDate =new ArrayList<String>();//日期
@@ -397,10 +458,6 @@ public class StockDataAnalysisController {
                         data5.add(temp5);
                         data6.add(temp6);
                       }
-                  
-                  dataName.add("邮件营销");
-                  //dataDate.add("2020-10-12");
-                  //data1.add(120.00);
                   
                     result.put("dataName", dataName);
                     result.put("dataDate", dataDate);

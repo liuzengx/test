@@ -6,7 +6,7 @@ $(function(){
 		var fdatez = $("#stock_view_list_fdate_z").datebox('getValue');
 		var fcode = $("#stock_view_list_fcode").val();
 		var fname = $("#stock_view_list_fname").combobox('getValue');
-		console.info("fdateq:"+fdateq+" fdatez:"+fdatez+" fcode:"+fcode);
+		//console.info("fdateq:"+fdateq+" fdatez:"+fdatez+" fcode:"+fcode);
 		//if(fdateq==""||fcode=="")return;
 		$('#stock_view_list').datagrid('reload',{
 			fdateq: fdateq,

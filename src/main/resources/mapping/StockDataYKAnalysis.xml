@@ -47,10 +47,46 @@
 	         	AND s.fName = #{fName} 
 	        </if>
         </where>
-        ORDER BY s.fdate DESC
+        <if test="order == 1">
+            ORDER BY s.fdate DESC
+        </if>
+        <if test="order == 2">
+            ORDER BY s.fdate ASC
+        </if>
         <if test="firstResult!=null and maxResult!=null">
             limit #{firstResult},#{maxResult}
         </if>
+    </select>
+    <!-- 查询折线统计图收益记录 --> 
+    <select id="queryZXList" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+        SELECT
+			s.fcode,
+			s.fname,
+			SUM(s.ybgztsy) ybgztsy,
+			SUM(s.wbgztsy) wbgztsy,
+			SUM(s.1qgztsy) 1qgztsy,
+			SUM(s.2qgztsy) 2qgztsy,
+			SUM(s.3qgztsy) 3qgztsy,
+			SUM(s.4qgztsy) 4qgztsy,
+			SUM(s.5qgztsy) 5qgztsy
+		FROM
+			view_price_sum s
+		<where>
+	        <if test="fdateq != null and fdateq !=''.toString()">
+	         	AND s.fDate >= #{fdateq} 
+	        </if>
+	        <if test="fdatez != null and fdatez !=''.toString()">
+	         	<![CDATA[ AND s.fDate <= #{fdatez} ]]> 
+	        </if>
+	        <if test="fName != null and fName !=''.toString()">
+	         	AND s.fName = #{fName} 
+	        </if>
+        </where>	
+		GROUP BY
+			s.fcode
+		<if test="fCode != null and fCode !=''.toString()">
+	         	HAVING s.fCode = #{fCode} 
+	    </if>
     </select>
     
 </mapper>

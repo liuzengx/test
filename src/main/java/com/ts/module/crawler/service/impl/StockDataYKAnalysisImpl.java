@@ -23,4 +23,10 @@ public class StockDataYKAnalysisImpl implements STockDataYKAnalysisService{
 		// TODO Auto-generated method stub
 		return stockDataYKAnalysisDao.queryYKList(map);
 	}
+
+	@Override
+	public List<HashMap<String, Object>> queryZXList(HashMap<String, Object> map) {
+		// public List<HashMap<String,Object>> queryZXList(HashMap<String,Object> map);
+		return stockDataYKAnalysisDao.queryZXList(map);
+	}
 }
