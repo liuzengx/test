@@ -62,13 +62,13 @@
         SELECT
 			s.fcode,
 			s.fname,
-			SUM(s.ybgztsy) ybgztsy,
-			SUM(s.wbgztsy) wbgztsy,
-			SUM(s.1qgztsy) 1qgztsy,
-			SUM(s.2qgztsy) 2qgztsy,
-			SUM(s.3qgztsy) 3qgztsy,
-			SUM(s.4qgztsy) 4qgztsy,
-			SUM(s.5qgztsy) 5qgztsy
+			SUM(replace(s.ybgztsy, ',', '')) ybgztsy,
+			SUM(replace(s.wbgztsy, ',', '')) wbgztsy,
+			SUM(replace(s.1qgztsy, ',', '')) 1qgztsy,
+			SUM(replace(s.2qgztsy, ',', '')) 2qgztsy,
+			SUM(replace(s.3qgztsy, ',', '')) 3qgztsy,
+			SUM(replace(s.4qgztsy, ',', '')) 4qgztsy,
+			SUM(replace(s.5qgztsy, ',', '')) 5qgztsy
 		FROM
 			view_price_sum s
 		<where>
